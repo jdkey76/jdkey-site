@@ -97,6 +97,9 @@ def main():
         with open(dest, "w", encoding="utf-8") as f: f.write(page)
         if not noindex: sitemap.append((path, meta.get("priority", "1.0" if path == "/" else "0.8")))
         print("  ", path)
+    # Page d'erreur Netlify : /404.html à la racine
+    if os.path.exists(os.path.join(OUT, "404", "index.html")):
+        shutil.move(os.path.join(OUT, "404", "index.html"), os.path.join(OUT, "404.html")); os.rmdir(os.path.join(OUT, "404"))
     today = datetime.date.today().isoformat()
     xml = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     xml += [f"  <url><loc>{SITE}{p}</loc><lastmod>{today}</lastmod><priority>{pr}</priority></url>" for p, pr in sitemap]

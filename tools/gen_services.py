@@ -20,8 +20,8 @@ OTHERS = {
 PAGES = [
   {
     "slug": "perte-cle-voiture-rouen", "key": "perte", "service": "perte", "urgent": True,
-    "title": "Perte de Clé de Voiture à Rouen – Nouvelle Clé Sans Double, dès 200 € | JD KEY",
-    "description": "Toutes vos clés de voiture perdues à Rouen ? JD KEY crée une nouvelle clé sur place, même sans double, et reprogramme l'antidémarrage. Dès 200 €, déplacement inclus, 24h/24.",
+    "title": "Perte de Clé de Voiture Rouen – dès 200 € | JD KEY",
+    "description": "Toutes vos clés de voiture perdues à Rouen ? Nouvelle clé faite sur place, même sans double, antidémarrage reprogrammé. Dès 200 €, 24h/24.",
     "og": "Perte de clé de voiture à Rouen : nouvelle clé sur place – JD KEY",
     "crumb": "Perte de clé", "h1": "Clés de voiture perdues ? <span>Nouvelle clé sur place</span>",
     "lead": "Plus aucune clé, même pas de double ? Inutile de faire remorquer la voiture chez le concessionnaire et d'attendre une commande. JD KEY vient à votre véhicule à Rouen et dans le 76, fabrique une clé neuve et reprogramme l'antidémarrage, 24h/24.",
@@ -50,8 +50,8 @@ PAGES = [
   },
   {
     "slug": "double-cle-voiture-rouen", "key": "double", "service": "double", "urgent": False,
-    "title": "Double de Clé de Voiture à Rouen – Télécommande, Carte, dès 80 € | JD KEY",
-    "description": "Double de clé de voiture à Rouen : clé télécommande, carte Renault, clé à puce, mains libres. De 80 € à 250 € selon le modèle, prix affiché en ligne. Réservation 7j/7.",
+    "title": "Double de Clé Voiture Rouen – dès 80 € | JD KEY",
+    "description": "Double de clé de voiture à Rouen : télécommande, carte Renault, clé à puce. De 80 à 250 € selon le modèle, prix affiché en ligne. RDV 7j/7.",
     "og": "Double de clé de voiture à Rouen – JD KEY",
     "crumb": "Double de clé", "h1": "Double de clé de voiture, <span>prix affiché selon votre modèle</span>",
     "lead": "Faire un double avant de perdre votre unique clé coûte bien moins cher qu'une perte totale. Clé télécommande, carte Renault, clé à puce ou mains libres : JD KEY réalise votre double au local de Saint-Étienne-du-Rouvray, sur rendez-vous 7j/7.",
@@ -81,8 +81,8 @@ PAGES = [
   },
   {
     "slug": "programmation-cle-voiture-rouen", "key": "programmation", "service": "programmation", "urgent": False,
-    "title": "Programmation Clé Voiture Rouen – Télécommande, Carte, Démarrage | JD KEY",
-    "description": "Télécommande de voiture qui ne répond plus, carte Renault non détectée, voiture qui ne démarre plus à cause de l'antidémarrage : JD KEY diagnostique et reprogramme à Rouen.",
+    "title": "Programmation Clé Voiture Rouen – Télécommande | JD KEY",
+    "description": "Télécommande qui ne répond plus, carte Renault non détectée, voiture qui ne démarre plus : JD KEY diagnostique et reprogramme votre clé à Rouen.",
     "og": "Programmation de clé et télécommande de voiture à Rouen – JD KEY",
     "crumb": "Programmation de clé", "h1": "Télécommande ou carte qui ne répond plus ? <span>On la reprogramme</span>",
     "lead": "Bouton sans effet, carte « non détectée », voyant antidémarrage qui clignote : la clé est souvent désynchronisée ou abîmée, pas forcément à remplacer. JD KEY diagnostique et reprogramme votre clé, à Rouen et dans tout le 76.",
@@ -115,7 +115,7 @@ PAGES = [
   },
   {
     "slug": "cle-cassee-reparation-coque", "key": "coque", "service": "coque", "urgent": False,
-    "title": "Clé de Voiture Cassée à Rouen – Réparation, Changement de Coque dès 60 € | JD KEY",
+    "title": "Clé de Voiture Cassée Rouen – Réparation dès 60 € | JD KEY",
     "description": "Clé de voiture cassée, lame tordue, boutons usés ou coque fendue à Rouen ? JD KEY répare votre clé ou change la coque dès 60 €, en gardant votre électronique.",
     "og": "Réparation de clé de voiture cassée à Rouen – JD KEY",
     "crumb": "Clé cassée, coque", "h1": "Clé cassée ou coque usée ? <span>Réparation dès 60 €</span>",

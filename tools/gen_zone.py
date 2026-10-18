@@ -79,8 +79,8 @@ def ville_page(v):
         crumbs([("Accueil", "/"), ("Zone d'intervention", "/zone-intervention/"), (v["nom"], url)])]}
     lieux = "".join(f"<li><span>{l}</span></li>" for l in v["lieux"])
     voisins = "".join(f'<li><a href="/zone-intervention/{s}/">{NOMS[s]}</a></li>' for s in v["voisins"])
-    return head(f"Serrurier Automobile {v['nom']} ({v['cp'][:2]}) – Clé de Voiture 24h/24 | JD KEY",
-                f"Serrurier automobile à {v['nom']} : ouverture de voiture dès 80 €, perte de clé dès 200 €, double de clé. Agréé SERMI, intervention 24h/24. ☎ 06 98 95 13 99",
+    return head((f"Serrurier Automobile {v['nom']} – 24h/24 | JD KEY" if len(v['nom']) < 18 else f"Serrurier Auto {v['nom']} – 24h/24 | JD KEY"),
+                (lambda d: d if len(d) <= 158 else d.replace(" ☎ 06 98 95 13 99", ""))(f"Serrurier automobile à {v['nom']} : ouverture dès 80 €, perte de clé dès 200 €, double de clé. Agréé SERMI, 24h/24. ☎ 06 98 95 13 99"),
                 f"Serrurier automobile à {v['nom']} – JD KEY", ld) + f'''
 <section class="hero on-dark">
   <div class="wrap" style="grid-template-columns:1fr">
@@ -136,7 +136,7 @@ def zone_page():
         f'      <a class="service" href="/zone-intervention/{v["slug"]}/"><span class="ico"><svg><use href="#i-pin"/></svg></span><h3>{v["nom"]}</h3><p>{v["cp"]} · {("notre local est ici" if v["km"].startswith("notre") else v["km"] + " du local")}</p><span class="price"><em>24h/24</em><span class="more">Voir →</span></span></a>'
         for v in VILLES)
     autres = "".join(f"<li><span>{a}</span></li>" for a in AUTRES)
-    return head("Zone d'Intervention – Serrurier Automobile Rouen et Seine-Maritime | JD KEY",
+    return head("Zone d'Intervention – Rouen et 30 km | JD KEY",
                 "JD KEY intervient à Rouen, Saint-Étienne-du-Rouvray, Sotteville, Mont-Saint-Aignan, Grand-Quevilly, Elbeuf, Barentin et dans un rayon de 30 km, 24h/24.",
                 "Zone d'intervention JD KEY – Rouen et 30 km autour", ld) + f'''
 <section class="page-head on-dark">
@@ -177,8 +177,8 @@ def apropos_page():
     ld = {"@context": "https://schema.org", "@graph": [
         {"@type": "AboutPage", "url": SITE + "/a-propos/", "about": {"@id": SITE + "/#entreprise"}},
         crumbs([("Accueil", "/"), ("À propos", "/a-propos/")])]}
-    return head("À Propos de JD KEY – Serrurier Automobile Agréé SERMI à Rouen",
-                "JD KEY, artisan serrurier automobile agréé SERMI à Saint-Étienne-du-Rouvray : un seul métier, la clé de voiture. Premier serrurier auto exposant au Salon de l'Auto de Rouen.",
+    return head("À Propos – Serrurier Automobile Agréé SERMI | JD KEY",
+                "JD KEY, serrurier automobile agréé SERMI à Saint-Étienne-du-Rouvray : un seul métier, la clé de voiture. Premier exposant au Salon de l'Auto de Rouen.",
                 "À propos de JD KEY, serrurier automobile à Rouen", ld) + '''
 <section class="page-head on-dark">
   <div class="wrap">
