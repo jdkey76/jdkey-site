@@ -116,6 +116,9 @@
       var f = P.fixes[s];
       return f.quote ? { quote: true } : { min: f.prix[0], max: f.prix[1] || f.prix[0], from: !!f.from };
     }
+    // Perte totale : le prix dépend du véhicule, minimum 200 €
+    if (s === "perte") return { min: P.perteMinimum, from: true, deplacement: true,
+      detail: "Clé neuve + antidémarrage reprogrammé. Le prix exact dépend du véhicule : il vous est annoncé au téléphone." };
     // double ou perte
     var techs = techCle(o);
     if (!techs) return { quote: true, detail: o.marque ? "Prix selon le modèle exact : envoyez votre immatriculation, réponse en quelques minutes." : "" };
@@ -125,8 +128,7 @@
       if (c.from) from = true; if (labels.indexOf(c.tech) < 0) labels.push(c.tech);
     });
     r = { min: min, max: max, from: from, detail: labels.join(" ou ") };
-    if (s === "perte") {
-      r.min = Math.max(r.min, P.perteMinimum); r.max = Math.max(r.max, P.perteMinimum); r.from = true;
+    if (false) {
       r.detail = "Clé neuve + antidémarrage reprogrammé · " + r.detail; r.deplacement = true;
     }
     return r;
