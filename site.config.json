@@ -1,0 +1,18 @@
+{
+  "_aide": "ID de la balise Google Ads (AW-…) et étiquettes de conversion. Google Ads > Objectifs > Conversions > clic sur l'action > Configuration de la balise > Utiliser Google Tag Manager : copier 'ID de conversion' et 'Libellé de conversion'.",
+  "google_tag_id": "AW-18293195563",
+  "ga4_id": "",
+  "conversion_labels": {
+    "call": "b_q1CN7NjqEdEKuG8JJE",
+    "whatsapp": "o5vqCKqZh6EdEKuG8JJE",
+    "form": "4s3GCPDcj6EdEKuG8JJE",
+    "booking": "b56BCMCdh6EdEKuG8JJE"
+  },
+  "_actions_google_ads": {
+    "call": "Site – Clic appel (7854073566)",
+    "whatsapp": "Site – Clic WhatsApp (7853952170)",
+    "form": "Site – Formulaire de rappel (7854091888)",
+    "booking": "Site – Réservation en ligne (7853952704)"
+  },
+  "_balise_google": "Balise Google : AW-18293195563 / GT-M6JL9ZG6"
+}

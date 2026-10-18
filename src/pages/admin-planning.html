@@ -1,0 +1,33 @@
+---
+title: Planning – Espace JD KEY
+description: Espace privé de gestion du planning JD KEY.
+noindex: true
+head: <script src="/assets/js/admin.js" defer></script>
+---
+<section class="section alt" style="padding-top:36px">
+  <div class="wrap">
+    <div id="adm-login" class="adm-card" style="max-width:420px;margin:40px auto">
+      <h1 style="font-size:1.5rem">Espace planning</h1>
+      <p style="color:var(--muted)">Entrez votre code d'accès.</p>
+      <form id="adm-form">
+        <div class="field"><label for="adm-pin">Code</label><input id="adm-pin" type="password" inputmode="numeric" autocomplete="current-password" required></div>
+        <p class="form-error" id="adm-err" hidden></p>
+        <button class="btn btn-gold btn-block" type="submit">Ouvrir le planning</button>
+      </form>
+    </div>
+    <div id="adm-app" hidden>
+      <div class="adm-top">
+        <h1 style="font-size:1.6rem;margin:0">Planning des réservations</h1>
+        <div class="adm-nav">
+          <button class="btn btn-ghost btn-sm" id="adm-prev" type="button">‹ Semaine</button>
+          <button class="btn btn-ghost btn-sm" id="adm-today" type="button">Aujourd'hui</button>
+          <button class="btn btn-ghost btn-sm" id="adm-next" type="button">Semaine ›</button>
+        </div>
+      </div>
+      <p class="adm-legend"><span class="lg free"></span>Libre (cliquer pour bloquer) <span class="lg blocked"></span>Bloqué <span class="lg taken"></span>Réservé <span class="lg busy"></span>Pris dans votre agenda</p>
+      <div id="adm-days"></div>
+      <h2 style="font-size:1.25rem;margin-top:30px">Prochains rendez-vous</h2>
+      <div id="adm-list"></div>
+    </div>
+  </div>
+</section>

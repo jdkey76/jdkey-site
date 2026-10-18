@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /merci/
+Disallow: /admin-planning/
+Disallow: /api/
+
+Sitemap: https://jdkey-auto-rouen.fr/sitemap.xml

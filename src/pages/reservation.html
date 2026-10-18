@@ -1,0 +1,102 @@
+---
+title: Prendre Rendez-vous en Ligne – Double de Clé, Programmation | JD KEY Rouen
+description: Réservez en ligne votre créneau d'1 heure avec JD KEY, serrurier automobile à Rouen : double de clé, programmation, réparation. Prix affiché selon votre véhicule.
+og_title: Réserver un créneau – JD KEY, serrurier automobile Rouen
+priority: 0.9
+head: <script src="/assets/js/booking.js" defer></script>
+---
+<section class="page-head on-dark">
+  <div class="wrap">
+    <span class="eyebrow">Réservation en ligne</span>
+    <h1>Choisissez votre créneau</h1>
+    <p class="lead">Créneaux d'une heure, 7 jours sur 7 de 9h à 18h, dimanche et jours fériés compris, au même tarif. Prix affiché selon votre véhicule, confirmé avant l'intervention. <b>Urgence ?</b> <a href="tel:+33698951399" data-track="reservation-head">Appelez le 06 98 95 13 99</a>, 24h/24.</p>
+  </div>
+</section>
+
+<section class="section alt booking-page">
+  <div class="wrap booking-layout">
+    <form id="booking-form" class="booking-steps" novalidate>
+      <!-- Étape 1 -->
+      <div class="bstep" id="step-1">
+        <h2><span>1</span>Votre besoin</h2>
+        <!--INCLUDE estimator-fields-->
+        <div class="urgent-box" id="urgent-box" hidden>
+          <b>Ouverture de véhicule : pas besoin de rendez-vous.</b>
+          <p>Appelez directement, on vous donne le prix et on arrive le plus vite possible, 24h/24.</p>
+          <a class="btn btn-gold" href="tel:+33698951399" data-track="reservation-ouverture"><svg><use href="#i-phone"/></svg>06 98 95 13 99</a>
+        </div>
+      </div>
+
+      <!-- Étape 2 -->
+      <div class="bstep" id="step-2">
+        <h2><span>2</span>Date et heure</h2>
+        <div class="cal-nav">
+          <button type="button" class="cal-arrow" id="cal-prev" aria-label="Jours précédents">‹</button>
+          <div class="cal-days" id="cal-days" role="listbox" aria-label="Choisir un jour"></div>
+          <button type="button" class="cal-arrow" id="cal-next" aria-label="Jours suivants">›</button>
+        </div>
+        <p class="cal-label" id="cal-label"></p>
+        <div class="cal-slots" id="cal-slots" role="listbox" aria-label="Choisir une heure"></div>
+        <p class="cal-empty" id="cal-empty" hidden>Plus de créneau libre ce jour-là. Essayez un autre jour ou <a href="tel:+33698951399" data-track="reservation-complet">appelez-nous</a>.</p>
+      </div>
+
+      <!-- Étape 3 -->
+      <div class="bstep" id="step-3">
+        <h2><span>3</span>Vos coordonnées</h2>
+        <div class="form-row">
+          <div class="field"><label for="b-prenom">Prénom *</label><input id="b-prenom" name="prenom" autocomplete="given-name" required></div>
+          <div class="field"><label for="b-nom">Nom</label><input id="b-nom" name="nom" autocomplete="family-name"></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="b-tel">Téléphone *</label><input id="b-tel" name="telephone" type="tel" inputmode="tel" autocomplete="tel" required></div>
+          <div class="field"><label for="b-plaque">Immatriculation</label><input id="b-plaque" name="plaque" placeholder="AA-123-AA" autocapitalize="characters"></div>
+        </div>
+        <div class="field">
+          <span class="label">Où intervenir ?</span>
+          <div class="keytypes two">
+            <label><input type="radio" name="lieu" value="local" checked><span><b>Au local</b><small>Saint-Étienne-du-Rouvray</small></span></label>
+            <label><input type="radio" name="lieu" value="domicile"><span><b>Chez moi / au travail</b><small id="lieu-depl">déplacement en supplément</small></span></label>
+          </div>
+        </div>
+        <div class="field" id="adresse-field" hidden><label for="b-adresse">Adresse d'intervention *</label><input id="b-adresse" name="adresse" autocomplete="street-address" placeholder="N°, rue, commune"></div>
+        <div class="field"><label for="b-msg">Précisions (facultatif)</label><textarea id="b-msg" name="message" rows="2" placeholder="Modèle exact, état de la clé, accès…"></textarea></div>
+        <p class="hp"><label>Ne pas remplir <input name="website" tabindex="-1" autocomplete="off"></label></p>
+        <label class="check"><input type="checkbox" id="b-docs" required> J'aurai la carte grise et une pièce d'identité à mon nom (obligatoire, agrément SERMI).</label>
+        <p class="form-error" id="b-error" role="alert" hidden></p>
+        <button class="btn btn-gold btn-block" type="submit" id="b-submit"><svg><use href="#i-cal"/></svg>Confirmer le rendez-vous</button>
+        <p class="consent">Vos informations servent uniquement à organiser l'intervention. <a href="/confidentialite/">Confidentialité</a>.</p>
+      </div>
+    </form>
+
+    <!-- Récapitulatif -->
+    <aside class="booking-summary" id="summary" aria-live="polite">
+      <h3>Récapitulatif</h3>
+      <dl>
+        <dt>Prestation</dt><dd id="s-service">—</dd>
+        <dt>Véhicule</dt><dd id="s-vehicule">—</dd>
+        <dt>Créneau</dt><dd id="s-creneau">—</dd>
+        <dt>Estimation</dt><dd id="s-prix" class="s-prix">—</dd>
+      </dl>
+      <p class="small"><span id="s-depl"></span>Paiement sur place : CB, espèces ou Wero. Annulation gratuite jusqu'à 1h avant.</p>
+    </aside>
+
+    <!-- Confirmation -->
+    <div class="booking-done" id="booking-done" hidden>
+      <div class="done-ico"><svg viewBox="0 0 24 24"><use href="#i-shield"/></svg></div>
+      <h2>Rendez-vous confirmé</h2>
+      <p class="lead" id="done-text"></p>
+      <p>Référence : <b id="done-ref"></b>. Pensez à la carte grise et à une pièce d'identité. Une question ? 06 98 95 13 99.</p>
+      <div class="hero-ctas" style="justify-content:center">
+        <a class="btn btn-dark" id="done-ics" download="rdv-jdkey.ics"><svg><use href="#i-cal"/></svg>Ajouter à mon agenda</a>
+        <a class="btn btn-wa" href="https://wa.me/33698951399" target="_blank" rel="noopener" data-track="reservation-confirmee"><svg><use href="#i-wa"/></svg>Envoyer une photo de la clé</a>
+      </div>
+      <p class="small">Un empêchement ? <a href="#" id="done-cancel">Annuler ce rendez-vous</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- Formulaire caché : sert uniquement à recevoir chaque réservation par e-mail (Netlify Forms) -->
+<form name="reservation" data-netlify="true" netlify-honeypot="website" hidden>
+  <input name="reference"><input name="creneau"><input name="prestation"><input name="vehicule"><input name="estimation">
+  <input name="prenom"><input name="nom"><input name="telephone"><input name="plaque"><input name="lieu"><input name="adresse"><textarea name="message"></textarea><input name="website">
+</form>

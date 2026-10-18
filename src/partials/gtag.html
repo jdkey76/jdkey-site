@@ -1,0 +1,20 @@
+<!-- ===================== BALISE GOOGLE =====================
+     Réglée dans site.config.json (google_tag_id, ga4_id, conversion_labels).
+     Consentement par défaut refusé (Consent Mode v2, exigé en France).
+     ========================================================== -->
+<script>
+  window.JDK_CONFIG = {{JDK_CONFIG}};
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    ad_storage: 'denied', analytics_storage: 'denied',
+    ad_user_data: 'denied', ad_personalization: 'denied',
+    wait_for_update: 500
+  });
+  gtag('set', 'ads_data_redaction', true);
+  gtag('set', 'url_passthrough', true);
+  gtag('js', new Date());
+{{GTAG_CONFIG}}
+</script>
+{{GTAG_LOADER}}
+<!-- =================== FIN BALISE GOOGLE =================== -->

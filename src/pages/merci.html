@@ -1,0 +1,25 @@
+---
+title: Demande envoyée – JD KEY
+description: Merci, votre demande a bien été envoyée à JD KEY. Nous vous rappelons rapidement.
+noindex: true
+---
+<section class="hero on-dark">
+  <div class="wrap" style="grid-template-columns:1fr;text-align:center;padding:90px 20px">
+    <div>
+      <span class="eyebrow">Demande bien reçue</span>
+      <h1>Merci, on vous <span>rappelle</span> très vite</h1>
+      <p class="lead" style="margin:0 auto">Nous vous recontactons dans les plus brefs délais. Si c'est urgent, n'attendez pas : appelez directement.</p>
+      <div class="hero-ctas" style="justify-content:center">
+        <a class="btn btn-gold" href="tel:+33698951399" data-track="merci"><svg><use href="#i-phone"/></svg>06 98 95 13 99</a>
+        <a class="btn btn-ghost" href="/">Retour à l'accueil</a>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  // Conversion "formulaire" : déclenchée une seule fois par envoi
+  window.addEventListener("load", function(){
+    try { if (sessionStorage.getItem("jdk_form_sent")) return; sessionStorage.setItem("jdk_form_sent", "1"); } catch(e){}
+    if (typeof trackConversion === "function") trackConversion("form", "formulaire-contact");
+  });
+</script>

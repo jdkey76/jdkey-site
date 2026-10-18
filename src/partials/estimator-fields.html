@@ -1,0 +1,52 @@
+<div class="field">
+  <label for="est-service">Prestation</label>
+  <select id="est-service" name="service" required><option value="">— Choisir —</option></select>
+</div>
+<div class="field" data-show="ouverture">
+  <label for="est-moment">Quand ?</label>
+  <select id="est-moment" name="moment"></select>
+</div>
+<div class="form-row" data-show="ouverture double perte programmation demarrage coque">
+  <div class="field">
+    <label for="est-marque">Marque</label>
+    <select id="est-marque" name="marque">
+      <option value="">— Choisir —</option>
+      <optgroup label="Groupe Renault / Stellantis"><option>Renault</option><option>Dacia</option><option>Peugeot</option><option>Citroën</option><option>DS</option></optgroup>
+      <optgroup label="Groupe Volkswagen"><option>Volkswagen</option><option>Audi</option><option>Seat</option><option>Cupra</option><option>Skoda</option></optgroup>
+      <optgroup label="Autres"><option>Toyota</option><option>Ford</option><option>Opel</option><option>Fiat</option><option>Nissan</option><option>Hyundai</option><option>Kia</option><option>BMW</option><option>Mercedes</option><option>Autre</option></optgroup>
+    </select>
+  </div>
+  <div class="field" data-show="ouverture double perte programmation demarrage coque">
+    <label for="est-annee">Année</label>
+    <select id="est-annee" name="annee">
+      <option value="">Je ne sais pas</option>
+      <option value="avant-2010">Avant 2010</option>
+      <option value="2010-2015">2010 – 2015</option>
+      <option value="2016-2019">2016 – 2019</option>
+      <option value="2020-plus">2020 et plus</option>
+    </select>
+  </div>
+</div>
+<div class="field" data-show="double perte">
+  <span class="label">Votre clé ressemble à…</span>
+  <div class="keytypes" role="radiogroup" aria-label="Type de clé">
+    <label><input type="radio" name="typeCle" value="telecommande" checked><span><b>Clé à boutons</b><small>lame + télécommande</small></span></label>
+    <label><input type="radio" name="typeCle" value="carte"><span><b>Carte</b><small>Renault</small></span></label>
+    <label><input type="radio" name="typeCle" value="mainslibres"><span><b>Mains libres</b><small>démarrage bouton</small></span></label>
+    <label><input type="radio" name="typeCle" value="simple"><span><b>Clé simple</b><small>sans boutons</small></span></label>
+  </div>
+</div>
+<div class="field" data-show-carte>
+  <label for="est-modele">Modèle (carte Renault)</label>
+  <select id="est-modele" name="modeleCarte">
+    <option value="">Je ne sais pas</option>
+    <option value="megane3">Mégane 3, Scénic 3, Laguna 3, Fluence</option>
+    <option value="clio4">Clio 4, Captur 1, Kadjar, Talisman</option>
+    <option value="recent">Clio 5, Mégane 4, Captur 2, Arkana…</option>
+  </select>
+</div>
+<div class="est-result" id="est-result" aria-live="polite">
+  <div class="est-price" id="est-price"></div>
+  <p class="est-detail" id="est-detail"></p>
+  <p class="est-note" id="est-note"></p>
+</div>
