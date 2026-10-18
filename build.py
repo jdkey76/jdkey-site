@@ -41,6 +41,7 @@ HEAD = """<!doctype html>
 <link rel="canonical" href="{url}">
 <meta name="robots" content="{robots}">
 <meta name="theme-color" content="#2b3436">
+<meta name="google-site-verification" content="sLQh_V72wmpmotJ57dL0YT1XvugWEwKWYJwIz1DsiJA">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="JD KEY">
