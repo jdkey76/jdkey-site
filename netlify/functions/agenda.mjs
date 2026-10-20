@@ -11,7 +11,13 @@ export default async (req) => {
   const st = store();
   const since = addDays(parisNow().date, -7);
   const keys = (await st.list({ prefix: "slot/" })).blobs.map(b => b.key).filter(k => k.slice(5, 15) >= since);
-  const lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//JD KEY//Planning//FR", "CALSCALE:GREGORIAN", "X-WR-CALNAME:JD KEY – Réservations", "X-WR-TIMEZONE:Europe/Paris", "REFRESH-INTERVAL;VALUE=DURATION:PT15M"];
+  const lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//JD KEY//Planning//FR", "CALSCALE:GREGORIAN", "METHOD:PUBLISH",
+    "X-WR-CALNAME:JD KEY – Réservations", "X-WR-TIMEZONE:Europe/Paris", "REFRESH-INTERVAL;VALUE=DURATION:PT15M", "X-PUBLISHED-TTL:PT15M",
+    // Définition du fuseau Europe/Paris (indispensable pour l'iPhone)
+    "BEGIN:VTIMEZONE", "TZID:Europe/Paris",
+    "BEGIN:DAYLIGHT", "TZOFFSETFROM:+0100", "TZOFFSETTO:+0200", "TZNAME:CEST", "DTSTART:19700329T020000", "RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU", "END:DAYLIGHT",
+    "BEGIN:STANDARD", "TZOFFSETFROM:+0200", "TZOFFSETTO:+0100", "TZNAME:CET", "DTSTART:19701025T030000", "RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU", "END:STANDARD",
+    "END:VTIMEZONE"];
   const now = new Date().toISOString().replace(/[-:]/g, "").slice(0, 15) + "Z";
   for (const k of keys) {
     const b = await getJSON(st, k); if (!b) continue;
@@ -24,6 +30,8 @@ export default async (req) => {
       "END:VEVENT");
   }
   lines.push("END:VCALENDAR");
-  return new Response(lines.join("\r\n"), { headers: { "content-type": "text/calendar; charset=utf-8", "cache-control": "no-store" } });
+  // Lignes de 75 octets max (norme iCalendar), coupées sans casser les caractères accentués
+  const fold = (l) => { const out = []; let cur = "", n = 0; for (const ch of l) { const b = Buffer.byteLength(ch); if (n + b > (out.length ? 74 : 75)) { out.push(cur); cur = ""; n = 0; } cur += ch; n += b; } out.push(cur); return out.join("\r\n "); };
+  return new Response(lines.map(fold).join("\r\n") + "\r\n", { headers: { "content-type": "text/calendar; charset=utf-8", "cache-control": "no-store" } });
 };
 export const config = { path: "/api/agenda.ics" };
