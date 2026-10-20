@@ -95,6 +95,8 @@ def main():
         page += "<main id=\"contenu\">" + body + PARTS["footer"].replace("/assets/js/", "/assets/js/").replace(".js\" defer", ".js?v=" + ver + "\" defer") + "</body>\n</html>\n"
         dest = os.path.join(OUT, path.strip("/"), "index.html") if path != "/" else os.path.join(OUT, "index.html")
         os.makedirs(os.path.dirname(dest), exist_ok=True)
+        # Version sur tous les scripts et styles : le navigateur recharge toujours la dernière version
+        page = re.sub(r'((?:src|href)="/assets/(?:js|css)/[^"?]+)"', lambda m: m.group(1) + "?v=" + ver + '"', page)
         with open(dest, "w", encoding="utf-8") as f: f.write(page)
         if not noindex: sitemap.append((path, meta.get("priority", "1.0" if path == "/" else "0.8")))
         print("  ", path)
