@@ -79,23 +79,82 @@ function icsLocal(value, params){
   }
   return { date: `${m[1]}-${m[2]}-${m[3]}`, min: +m[4] * 60 + +m[5] }; // TZID=Europe/Paris ou heure locale
 }
+const DAYS = ["SU", "MO", "TU", "WE", "TH", "FR", "SA"];
+const dayDiff = (a, b) => Math.round((Date.parse(b + "T12:00:00Z") - Date.parse(a + "T12:00:00Z")) / 864e5);
+const parts = iso => iso.split("-").map(Number);
+const mondayOf = iso => addDays(iso, -((weekday(iso) + 6) % 7));
+
+/* Dates d'occurrence d'un événement (gère RRULE quotidien/hebdo/mensuel/annuel, INTERVAL, COUNT, UNTIL) */
+function occurrences(startDate, rrule, from, to){
+  if (!rrule) return [startDate];
+  const R = Object.fromEntries(rrule.split(";").map(x => x.split("=")));
+  const freq = R.FREQ, iv = Math.max(1, +(R.INTERVAL || 1)), count = R.COUNT ? +R.COUNT : Infinity;
+  const until = R.UNTIL ? `${R.UNTIL.slice(0,4)}-${R.UNTIL.slice(4,6)}-${R.UNTIL.slice(6,8)}` : "9999-12-31";
+  const byday = R.BYDAY ? R.BYDAY.split(",").map(x => ({ n: parseInt(x, 10) || 0, d: DAYS.indexOf(x.slice(-2)) })) : null;
+  const bymd = R.BYMONTHDAY ? R.BYMONTHDAY.split(",").map(Number) : null;
+  const [sy, sm, sd] = parts(startDate), out = [];
+  let n = 0;
+  for (let d = startDate; d <= to && d <= until && n < count; d = addDays(d, 1)) {
+    const [y, m, dd] = parts(d), wd = weekday(d);
+    let ok = false;
+    if (freq === "DAILY") ok = dayDiff(startDate, d) % iv === 0 && (!byday || byday.some(x => x.d === wd));
+    else if (freq === "WEEKLY") ok = (dayDiff(mondayOf(startDate), mondayOf(d)) / 7) % iv === 0 && (byday ? byday.some(x => x.d === wd) : wd === weekday(startDate));
+    else if (freq === "MONTHLY" || freq === "YEARLY") {
+      const months = (y - sy) * 12 + (m - sm);
+      const period = freq === "MONTHLY" ? months % iv === 0 : (m === sm && (y - sy) % iv === 0);
+      let dayOk;
+      if (bymd) dayOk = bymd.includes(dd);
+      else if (byday) {
+        const nth = Math.floor((dd - 1) / 7) + 1, last = parts(addDays(d, 7))[1] !== m;
+        dayOk = byday.some(x => x.d === wd && (x.n === 0 || x.n === nth || (x.n === -1 && last)));
+      } else dayOk = dd === sd;
+      ok = period && dayOk;
+    } else ok = d === startDate;
+    if (!ok) continue;
+    n++;
+    if (d >= from) out.push(d);
+  }
+  return out;
+}
+
 export async function gcalBusy(){
   const url = process.env.GCAL_ICS_URL;
   if (!url) return [];
   if (Date.now() - gcalCache.at < 5 * 60e3) return gcalCache.events;
   try {
     const txt = (await (await fetch(url)).text()).replace(/\r?\n[ \t]/g, "");
+    const today = parisNow().date, from = addDays(today, -1), to = addDays(today, RULES.horizonDays + 2);
+    const blocks = txt.split("BEGIN:VEVENT").slice(1).map(x => x.split("END:VEVENT")[0]);
+    const get = (block, k) => { const r = block.match(new RegExp("^" + k + "([^:\\n]*):(.*)$", "m")); return r ? { params: r[1], value: r[2].trim() } : null; };
+    // Occurrences modifiées individuellement (RECURRENCE-ID) : on retire l'occurrence d'origine
+    const moved = new Set();
+    for (const bl of blocks) { const rid = get(bl, "RECURRENCE-ID"), uid = get(bl, "UID"); if (rid && uid) { const x = icsLocal(rid.value, rid.params); if (x) moved.add(uid.value + "|" + x.date); } }
     const events = [];
-    for (const block of txt.split("BEGIN:VEVENT").slice(1)) {
-      if (/TRANSP:TRANSPARENT/.test(block) || /STATUS:CANCELLED/.test(block)) continue;
-      const g = k => { const r = block.match(new RegExp("^" + k + "([^:\\n]*):(.*)$", "m")); return r ? icsLocal(r[2].trim(), r[1]) : null; };
-      const s = g("DTSTART"), e = g("DTEND") || s;
-      if (!s) continue;
-      if (s.allDay) {
-        // jours entiers bloqués (fin exclusive)
-        for (let d = s.date; d < (e.date > s.date ? e.date : addDays(s.date, 1)); d = addDays(d, 1)) events.push({ date: d, from: 0, to: 1440 });
-      } else if (e.date === s.date) events.push({ date: s.date, from: s.min, to: e.min });
-      else { events.push({ date: s.date, from: s.min, to: 1440 }); events.push({ date: e.date, from: 0, to: e.min }); }
+    for (const bl of blocks) {
+      if (/TRANSP:TRANSPARENT/.test(bl) || /STATUS:CANCELLED/.test(bl)) continue;
+      const S = get(bl, "DTSTART"), E = get(bl, "DTEND");
+      const s = S && icsLocal(S.value, S.params); if (!s) continue;
+      const e = (E && icsLocal(E.value, E.params)) || (s.allDay ? { date: addDays(s.date, 1), min: 0, allDay: true } : s);
+      const uid = (get(bl, "UID") || {}).value || "", isOverride = !!get(bl, "RECURRENCE-ID");
+      const rr = get(bl, "RRULE"), ex = new Set();
+      for (const line of bl.match(/^EXDATE[^:\n]*:.*$/gm) || []) {
+        const [pp, vv] = [line.slice(6, line.indexOf(":")), line.slice(line.indexOf(":") + 1)];
+        for (const v of vv.split(",")) { const x = icsLocal(v.trim(), pp); if (x) ex.add(x.date); }
+      }
+      const span = dayDiff(s.date, e.date);
+      for (const d of occurrences(s.date, rr && rr.value, from, to)) {
+        if (ex.has(d) || (!isOverride && rr && moved.has(uid + "|" + d))) continue;
+        let os = s, oe = e;
+        if (rr && !s.allDay && /Z$/.test(S.value)) {
+          // Heure UTC : on recalcule l'heure de Paris à la date de chaque occurrence (été / hiver)
+          const shift = dayDiff(s.date, d), toUtc = (v) => addDays(`${v.slice(0,4)}-${v.slice(4,6)}-${v.slice(6,8)}`, shift).replace(/-/g, "") + v.slice(8);
+          os = icsLocal(toUtc(S.value), S.params) || s; oe = (E && icsLocal(toUtc(E.value), E.params)) || os;
+        }
+        const end = addDays(d, span);
+        if (s.allDay) { for (let x = d; x < (end > d ? end : addDays(d, 1)); x = addDays(x, 1)) events.push({ date: x, from: 0, to: 1440 }); }
+        else if (end === d) events.push({ date: d, from: os.min, to: oe.min });
+        else { events.push({ date: d, from: os.min, to: 1440 }); for (let x = addDays(d, 1); x < end; x = addDays(x, 1)) events.push({ date: x, from: 0, to: 1440 }); events.push({ date: end, from: 0, to: oe.min }); }
+      }
     }
     gcalCache = { at: Date.now(), events };
   } catch (err) { console.error("GCAL", err.message); }
