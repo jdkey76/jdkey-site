@@ -65,8 +65,9 @@ export const isDate = s => /^\d{4}-\d{2}-\d{2}$/.test(s || "");
 export const isHour = s => RULES.hours.includes(s);
 
 /* ---------- Agenda Google du gérant (optionnel) ----------
-   Variable d'environnement GCAL_ICS_URL = "Adresse secrète au format iCal"
-   de son Google Agenda : ses rendez-vous bloquent automatiquement les créneaux. */
+   Variable d'environnement GCAL_ICS_URL = adresse iCal de son agenda : "Adresse secrète au format iCal"
+   (Google Agenda) ou lien de "Calendrier public" iCloud (webcal://…). Plusieurs adresses : séparer par une virgule.
+   Ses rendez-vous bloquent automatiquement les créneaux. */
 let gcalCache = { at: 0, events: [] };
 function icsLocal(value, params){
   // Renvoie { date:"YYYY-MM-DD", min: minutes depuis minuit (heure de Paris), allDay }
@@ -122,7 +123,9 @@ export async function gcalBusy(){
   if (!url) return [];
   if (Date.now() - gcalCache.at < 5 * 60e3) return gcalCache.events;
   try {
-    const txt = (await (await fetch(url)).text()).replace(/\r?\n[ \t]/g, "");
+    // Une ou plusieurs adresses (séparées par des virgules), Google Agenda ou iCloud (webcal://)
+    const urls = url.split(/[\s,]+/).filter(Boolean).map(u => u.replace(/^webcal:/i, "https:"));
+    const txt = (await Promise.all(urls.map(async u => (await fetch(u)).text()))).join("\n").replace(/\r?\n[ \t]/g, "");
     const today = parisNow().date, from = addDays(today, -1), to = addDays(today, RULES.horizonDays + 2);
     const blocks = txt.split("BEGIN:VEVENT").slice(1).map(x => x.split("END:VEVENT")[0]);
     const get = (block, k) => { const r = block.match(new RegExp("^" + k + "([^:\\n]*):(.*)$", "m")); return r ? { params: r[1], value: r[2].trim() } : null; };
