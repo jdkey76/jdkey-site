@@ -21,7 +21,9 @@ Site configuration > Environment variables :
 | --- | --- |
 | `ADMIN_PIN` | Code d'accès à l'espace planning `/admin-planning/` (choisir 6 chiffres ou plus) |
 | `AGENDA_KEY` | Clé secrète du flux agenda (ex. une suite de lettres au hasard) |
-| `GCAL_ICS_URL` | Facultatif : « Adresse secrète au format iCal » de ton Google Agenda. Tes rendez-vous personnels bloquent alors automatiquement les créneaux du site. |
+| `GCAL_ICS_URL` | Adresse iCal de l'agenda perso (lien « Calendrier public » iCloud webcal://… ou adresse secrète Google Agenda). Plusieurs : séparer par des virgules. Les rendez-vous perso bloquent les créneaux. |
+| `REVIEW_URL` | Lien direct pour laisser un avis Google (fiche Google → « Demander des avis »). |
+| `BREVO_API_KEY` | Facultatif : clé API Brevo pour envoyer automatiquement les demandes d'avis par SMS à 19 h 30. Sans clé : envoi manuel en un geste depuis l'onglet « Avis clients ». |
 
 Puis Forms > Form notifications : ajouter une notification e-mail vers jdkey.contact@gmail.com pour les formulaires
 `contact` (demande de rappel) et `reservation` (chaque nouveau rendez-vous).

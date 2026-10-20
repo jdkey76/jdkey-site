@@ -202,3 +202,37 @@ export function checkAdmin(req){
   const a = Buffer.from(given), b = Buffer.from(pin);
   return a.length === b.length && crypto.timingSafeEqual(a, b) ? null : "Code incorrect";
 }
+
+/* ---------- Demandes d'avis Google ---------- */
+// Numéro français -> format international sans "+" (ex. 0612345678 -> 33612345678). Mobiles uniquement (06/07).
+export function mobileFR(tel){
+  let d = String(tel || "").replace(/\D/g, "");
+  if (d.startsWith("0033")) d = d.slice(2);
+  if (d.startsWith("0") && d.length === 10) d = "33" + d.slice(1);
+  return /^33[67]\d{8}$/.test(d) ? d : null;
+}
+export function reviewUrl(){ return process.env.REVIEW_URL || "https://www.google.com/maps?cid=16242274737633797430"; }
+// Message en caractères SMS standards (pas d'accents hors é/è/à) pour rester sur un seul SMS autant que possible
+export function reviewMessage(prenom){
+  const p = String(prenom || "").split(" ")[0].replace(/[^\p{L}\-']/gu, "").slice(0, 20);
+  return `Bonjour${p ? " " + p : ""}, merci d'avoir choisi JD KEY ! Votre avis Google m'aiderait beaucoup : ${reviewUrl()} Bonne soirée !`;
+}
+
+export async function queueFor(st, date){
+  const items = [];
+  for (const b of (await st.list({ prefix: `avis/${date}/` })).blobs) { const x = await getJSON(st, b.key); if (x) items.push(x); }
+  for (const b of (await st.list({ prefix: `slot/${date}/` })).blobs) {
+    const r = await getJSON(st, b.key); if (!r) continue;
+    const ex = await getJSON(st, `avis-exclu/${r.id}`);
+    items.push({ id: "R" + r.id, date, origine: "réservation site", prenom: r.prenom, telephone: r.telephone, service: r.service, heure: r.heure, exclu: !!ex });
+  }
+  for (const it of items) {
+    const tel = mobileFR(it.telephone);
+    it.mobile = !!tel;
+    const sent = tel ? await getJSON(st, `avis-envoye/${tel}`) : null;
+    it.envoye = sent ? sent.date : null;
+    it.message = reviewMessage(it.prenom);
+  }
+  return items.sort((a, b) => (a.heure || "99").localeCompare(b.heure || "99"));
+}
+

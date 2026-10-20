@@ -112,3 +112,58 @@ document.addEventListener("DOMContentLoaded", function(){
     var dd = e.target.closest("[data-days]"); if (dd) load(+dd.dataset.days);
   });
 });
+
+/* ---------- Avis clients ---------- */
+document.addEventListener("DOMContentLoaded", function(){
+  var el = function(id){ return document.getElementById(id); };
+  if (!el("adm-avis")) return;
+  var SERV = { ouverture: "Ouverture", perte: "Perte totale", double: "Double", programmation: "Programmation", demarrage: "Démarrage", coque: "Clé cassée / coque" };
+  var esc = function(s){ return String(s || "").replace(/[&<>"]/g, function(c){ return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
+  function pin(){ try { return sessionStorage.getItem("jdk_pin") || ""; } catch(e){ return ""; } }
+  function api(method, body){
+    return fetch("/api/avis", { method: method, headers: { "x-admin-pin": pin(), "content-type": "application/json" }, body: body ? JSON.stringify(body) : undefined })
+      .then(function(r){ return r.json().then(function(d){ if (!r.ok) throw new Error(d.error || "Erreur"); return d; }); });
+  }
+  var auto = false;
+  function load(){
+    api("GET").then(function(d){
+      auto = d.auto;
+      el("avis-mode").innerHTML = (d.auto
+        ? "Envoi <b>automatique par SMS chaque soir à 19 h 30</b> à tous les clients de la liste (sauf ceux que vous excluez). Les réservations du site y sont ajoutées toutes seules."
+        : "Envoi <b>manuel</b> pour l'instant : touchez « SMS » ou « WhatsApp », le message est déjà rédigé. Les réservations du site s'ajoutent toutes seules.")
+        + (d.lienConfigure ? "" : " <br><b>Lien d'avis Google à configurer</b> (variable REVIEW_URL).");
+      el("avis-list").innerHTML = d.items.length ? d.items.map(function(it){
+        var tel = String(it.telephone || "").replace(/\s/g, ""), wa = tel.replace(/^0/, "33").replace(/\D/g, "");
+        var state = it.envoye ? '<span class="pill ok">Avis déjà demandé le ' + esc(it.envoye.split("-").reverse().join("/")) + '</span>'
+          : !it.mobile ? '<span class="pill">Pas un portable</span>'
+          : it.exclu ? '<span class="pill">Exclu</span>'
+          : (auto ? '<span class="pill gold">Envoi ce soir 19 h 30</span>' : "");
+        var manual = (!auto && it.mobile && !it.envoye && !it.exclu)
+          ? '<a class="btn btn-gold btn-sm" data-sent href="sms:' + esc(tel) + '?&body=' + encodeURIComponent(it.message) + '">SMS</a><a class="btn btn-wa btn-sm" data-sent target="_blank" rel="noopener" href="https://wa.me/' + esc(wa) + '?text=' + encodeURIComponent(it.message) + '">WhatsApp</a>' : "";
+        return '<div class="adm-item" data-id="' + esc(it.id) + '" data-tel="' + esc(tel) + '" data-prenom="' + esc(it.prenom) + '"><div><b>' + esc(it.prenom) + '</b> · ' + esc(tel) + '<br><small>' + esc(SERV[it.service] || it.service || "") + ' · ' + esc(it.origine) + (it.heure ? " " + esc(it.heure) : "") + '</small><br>' + state + '</div>' +
+          '<div class="adm-actions">' + manual + (it.envoye ? "" : '<button type="button" class="btn btn-ghost btn-sm" data-act="' + (it.exclu ? "include" : "exclude") + '">' + (it.exclu ? "Réintégrer" : "Exclure") + '</button>') +
+          (it.origine === "saisie" && !it.envoye ? '<button type="button" class="btn btn-ghost btn-sm" data-act="delete">Supprimer</button>' : "") + '</div></div>';
+      }).join("") : '<p style="color:var(--muted)">Aucun client pour l\'instant aujourd\'hui.</p>';
+      el("avis-hist").innerHTML = d.historique.length ? d.historique.map(function(h){
+        return '<div class="st-row" style="grid-template-columns:1fr auto"><span>' + esc(h.date.split("-").reverse().join("/")) + ' · ' + esc(h.prenom) + ' (' + (h.mode === "auto" ? "SMS auto" : "manuel") + ')</span><b>' + (h.ok ? "✓" : "échec") + '</b></div>';
+      }).join("") : '<p style="color:var(--muted)">Aucune demande envoyée.</p>';
+    }).catch(function(e){ el("avis-list").textContent = e.message; });
+  }
+  el("avis-form").addEventListener("submit", function(e){
+    e.preventDefault(); el("avis-err").hidden = true;
+    api("POST", { action: "add", prenom: el("avis-prenom").value, telephone: el("avis-tel").value, service: el("avis-service").value })
+      .then(function(){ el("avis-form").reset(); load(); })
+      .catch(function(err){ el("avis-err").textContent = err.message; el("avis-err").hidden = false; });
+  });
+  el("avis-list").addEventListener("click", function(e){
+    var row = e.target.closest(".adm-item"); if (!row) return;
+    var b = e.target.closest("[data-act]");
+    if (b) { b.disabled = true; api("POST", { action: b.dataset.act, id: row.dataset.id }).then(load); }
+    if (e.target.closest("[data-sent]")) setTimeout(function(){ api("POST", { action: "sent", id: row.dataset.id, telephone: row.dataset.tel, prenom: row.dataset.prenom }).then(load); }, 800);
+  });
+  document.addEventListener("click", function(e){
+    var t = e.target.closest("[data-tab]"); if (!t) return;
+    el("adm-avis").hidden = t.dataset.tab !== "avis";
+    if (t.dataset.tab === "avis") load();
+  });
+});

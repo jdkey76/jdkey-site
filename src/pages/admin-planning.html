@@ -2,7 +2,7 @@
 title: Planning – Espace JD KEY
 description: Espace privé de gestion du planning JD KEY.
 noindex: true
-head: <script src="/assets/js/admin.js" defer></script>
+head: <script src="/assets/js/admin.js" defer></script><style>.mobile-bar,.float-call,#consent,.topbar{display:none!important}.site-footer{padding-bottom:40px}</style>
 ---
 <section class="section alt" style="padding-top:36px">
   <div class="wrap">
@@ -27,6 +27,25 @@ head: <script src="/assets/js/admin.js" defer></script>
       <div class="adm-tabs" role="tablist">
         <button type="button" class="btn btn-dark btn-sm" data-tab="planning" aria-pressed="true">Planning</button>
         <button type="button" class="btn btn-ghost btn-sm" data-tab="stats" aria-pressed="false">Statistiques du site</button>
+        <button type="button" class="btn btn-ghost btn-sm" data-tab="avis" aria-pressed="false">Avis clients</button>
+      </div>
+      <div id="adm-avis" hidden>
+        <div class="adm-card" style="margin-bottom:12px">
+          <h2 style="font-size:1.1rem;margin-bottom:4px">Intervention terminée ? Ajoutez le client</h2>
+          <p class="small" style="color:var(--muted);margin:0 0 12px" id="avis-mode"></p>
+          <form id="avis-form" class="avis-form">
+            <div class="field"><label for="avis-prenom">Prénom</label><input id="avis-prenom" autocomplete="off" required></div>
+            <div class="field"><label for="avis-tel">Portable</label><input id="avis-tel" type="tel" inputmode="tel" autocomplete="off" required placeholder="06…"></div>
+            <div class="field"><label for="avis-service">Prestation</label>
+              <select id="avis-service"><option value="ouverture">Ouverture</option><option value="double">Double</option><option value="perte">Perte totale</option><option value="programmation">Programmation</option><option value="demarrage">Démarrage</option><option value="coque">Clé cassée / coque</option></select></div>
+            <button class="btn btn-gold" type="submit">Ajouter</button>
+          </form>
+          <p class="form-error" id="avis-err" hidden></p>
+        </div>
+        <h2 style="font-size:1.1rem">Demandes d'avis d'aujourd'hui</h2>
+        <div id="avis-list"></div>
+        <h2 style="font-size:1.1rem;margin-top:22px">Envoyées ces 7 derniers jours</h2>
+        <div id="avis-hist"></div>
       </div>
       <div id="adm-stats" hidden>
         <div class="adm-nav" style="margin:6px 0 14px"><button type="button" class="btn btn-ghost btn-sm" data-days="1">Aujourd'hui</button><button type="button" class="btn btn-ghost btn-sm" data-days="7">7 jours</button><button type="button" class="btn btn-ghost btn-sm" data-days="30">30 jours</button></div>

@@ -28,7 +28,7 @@ var JDK_STAT = (function(){
     : /facebook|instagram|tiktok|snapchat|whatsapp|linkedin|t\.co/.test(host) ? "social" : "other";
   var mob = window.matchMedia && matchMedia("(max-width:820px)").matches ? 1 : 0;
   function send(t, extra){
-    if (navigator.webdriver) return;
+    if (navigator.webdriver || /^\/admin/.test(location.pathname)) return;
     var d = { t: t, p: location.pathname, src: src, m: mob, e: (t === "pv" && entry) ? 1 : 0 };
     for (var k in (extra || {})) d[k] = extra[k];
     var body = JSON.stringify(d);
