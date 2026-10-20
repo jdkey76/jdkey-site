@@ -422,3 +422,21 @@ p{margin:0 0 1em}
 
 .site-footer .logo-text small{color:var(--gold-lt)}
 .site-footer .ft{color:#fff;font-size:.95rem;font-weight:700;margin-bottom:14px}
+/* ---------- Statistiques (espace planning) ---------- */
+.adm-tabs{display:flex;gap:8px;margin:4px 0 16px}
+.st-kpis{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-bottom:14px}
+.st-kpi{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px}
+.st-kpi b{display:block;font-size:1.6rem;color:var(--ink);font-variant-numeric:tabular-nums}
+.st-kpi span{font-size:.82rem;font-weight:700}
+.st-kpi small{display:block;font-size:.74rem;color:var(--muted)}
+.st-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.st-block{padding:16px}
+.st-block h3{font-size:.95rem;margin-bottom:10px}
+.st-row{display:grid;grid-template-columns:minmax(0,1fr) 90px 36px;gap:8px;align-items:center;font-size:.85rem;padding:3px 0}
+.st-row span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.st-row i{display:block;height:8px;border-radius:4px;background:var(--gold)}
+.st-row b{text-align:right;font-variant-numeric:tabular-nums}
+.st-bars{display:flex;align-items:flex-end;gap:4px;height:120px}
+.st-bars div{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;min-width:0}
+.st-bars i{display:block;width:100%;background:var(--matte);border-radius:4px 4px 0 0;min-height:2px}
+.st-bars span{font-size:.68rem;color:var(--muted);margin-top:4px}

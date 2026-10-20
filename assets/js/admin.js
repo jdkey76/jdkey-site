@@ -58,3 +58,57 @@ document.addEventListener("DOMContentLoaded", function(){
   el("adm-today").addEventListener("click", function(){ from = null; load(); });
   if (pin) load();
 });
+
+/* ---------- Statistiques du site ---------- */
+document.addEventListener("DOMContentLoaded", function(){
+  var el = function(id){ return document.getElementById(id); };
+  if (!el("adm-stats")) return;
+  var SRC = { ads: "Google Ads", google: "Google (naturel)", bing: "Autres moteurs", social: "Réseaux sociaux", direct: "Accès direct", other: "Autres sites" };
+  var SERV = { ouverture: "Ouverture", perte: "Perte totale", double: "Double", programmation: "Programmation", demarrage: "Démarrage", coque: "Clé cassée / coque" };
+  var esc = function(s){ return String(s).replace(/[&<>]/g, function(c){ return { "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]; }); };
+  function pin(){ try { return sessionStorage.getItem("jdk_pin") || ""; } catch(e){ return ""; } }
+  function sum(days, k){ return days.reduce(function(a, d){ return a + (d[k] || 0); }, 0); }
+  function merge(days, k){ var o = {}; days.forEach(function(d){ for (var x in d[k]) o[x] = (o[x] || 0) + d[k][x]; }); return o; }
+  function top(o, labels, n){
+    var rows = Object.keys(o).sort(function(a, b){ return o[b] - o[a]; }).slice(0, n || 8);
+    if (!rows.length) return '<p class="small" style="color:var(--muted)">Pas encore de données.</p>';
+    var max = o[rows[0]];
+    return rows.map(function(k){ return '<div class="st-row"><span>' + esc(labels && labels[k] || k) + '</span><i style="width:' + Math.max(4, Math.round(o[k] / max * 100)) + '%"></i><b>' + o[k] + '</b></div>'; }).join("");
+  }
+  function load(n){
+    el("adm-stats-body").innerHTML = '<p style="color:var(--muted)">Chargement…</p>';
+    fetch("/api/stats?days=" + n, { headers: { "x-admin-pin": pin() } }).then(function(r){ return r.json(); }).then(function(d){
+      if (!d.days) { el("adm-stats-body").textContent = d.error || "Erreur"; return; }
+      var D = d.days, v = sum(D, "visites"), contacts = sum(D, "call") + sum(D, "whatsapp") + sum(D, "form") + sum(D, "booking");
+      var kpi = function(label, val, sub){ return '<div class="st-kpi"><b>' + val + '</b><span>' + label + '</span>' + (sub ? '<small>' + sub + '</small>' : "") + '</div>'; };
+      var html = '<div class="st-kpis">' +
+        kpi("Visites", v, sum(D, "pages") + " pages vues") +
+        kpi("Clics « Appeler »", sum(D, "call")) + kpi("Clics WhatsApp", sum(D, "whatsapp")) +
+        kpi("Réservations", sum(D, "booking")) + kpi("Demandes de rappel", sum(D, "form")) +
+        kpi("Taux de contact", v ? Math.round(contacts / v * 100) + " %" : "–", "visites qui contactent") +
+        kpi("Sur mobile", v ? Math.round(sum(D, "mobile") / v * 100) + " %" : "–") + '</div>';
+      if (D.length > 1) {
+        var mx = Math.max.apply(null, D.map(function(x){ return x.visites; }).concat([1]));
+        html += '<div class="adm-card st-block"><h3>Visites par jour</h3><div class="st-bars">' + D.map(function(x){
+          return '<div title="' + x.date + " : " + x.visites + ' visites"><i style="height:' + Math.round(x.visites / mx * 100) + '%"></i><span>' + x.date.slice(8) + '</span></div>'; }).join("") + '</div></div>';
+      }
+      html += '<div class="st-grid">' +
+        '<div class="adm-card st-block"><h3>D\'où viennent les visiteurs</h3>' + top(merge(D, "sources"), SRC) + '</div>' +
+        '<div class="adm-card st-block"><h3>Pages d\'arrivée</h3>' + top(merge(D, "entrees")) + '</div>' +
+        '<div class="adm-card st-block"><h3>Pages les plus vues</h3>' + top(merge(D, "pagesTop")) + '</div>' +
+        '<div class="adm-card st-block"><h3>Prix consultés (simulateur)</h3>' + top(merge(D, "estimations"), SERV) + '</div>' +
+        '<div class="adm-card st-block"><h3>Heures d\'arrivée</h3>' + top(merge(D, "heures"), null, 24).replace(/<span>(\d+)<\/span>/g, "<span>$1 h</span>") + '</div>' +
+        '</div><p class="small" style="color:var(--muted);margin-top:10px">Mesure anonyme, sans cookie. Les clics « Appeler » comptent l\'intention d\'appeler depuis le site, pas les appels décrochés.</p>';
+      el("adm-stats-body").innerHTML = html;
+    }).catch(function(){ el("adm-stats-body").textContent = "Impossible de charger les statistiques."; });
+  }
+  document.addEventListener("click", function(e){
+    var t = e.target.closest("[data-tab]");
+    if (t) {
+      document.querySelectorAll("[data-tab]").forEach(function(b){ var on = b === t; b.setAttribute("aria-pressed", on); b.className = "btn btn-sm " + (on ? "btn-dark" : "btn-ghost"); });
+      el("adm-stats").hidden = t.dataset.tab !== "stats"; el("adm-planning").hidden = t.dataset.tab !== "planning";
+      if (t.dataset.tab === "stats") load(7);
+    }
+    var dd = e.target.closest("[data-days]"); if (dd) load(+dd.dataset.days);
+  });
+});

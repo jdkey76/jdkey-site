@@ -19,6 +19,25 @@ function $(s, c){ return (c || document).querySelector(s); }
 function $all(s, c){ return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
 function store(k, v){ try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch(e){ return null; } }
 
+/* ---------- STATISTIQUES DU SITE (sans cookie, anonymes) ---------- */
+var JDK_STAT = (function(){
+  var ref = document.referrer, host = ref ? (function(){ try { return new URL(ref).hostname; } catch(e){ return ""; } })() : "";
+  var q = location.search, entry = host !== location.hostname;
+  var src = /[?&](gclid|gbraid|wbraid)=/.test(q) || /utm_medium=cpc/.test(q) ? "ads"
+    : !entry ? "interne" : !host ? "direct" : /google\./.test(host) ? "google" : /bing\.|qwant|duckduckgo|ecosia|yahoo/.test(host) ? "bing"
+    : /facebook|instagram|tiktok|snapchat|whatsapp|linkedin|t\.co/.test(host) ? "social" : "other";
+  var mob = window.matchMedia && matchMedia("(max-width:820px)").matches ? 1 : 0;
+  function send(t, extra){
+    if (navigator.webdriver) return;
+    var d = { t: t, p: location.pathname, src: src, m: mob, e: (t === "pv" && entry) ? 1 : 0 };
+    for (var k in (extra || {})) d[k] = extra[k];
+    var body = JSON.stringify(d);
+    try { if (!(navigator.sendBeacon && navigator.sendBeacon("/api/stats", body))) fetch("/api/stats", { method: "POST", body: body, keepalive: true }); } catch(e){}
+  }
+  send("pv");
+  return send;
+})();
+
 /* ---------- 2. CONSENTEMENT ---------- */
 (function(){
   var banner = $("#consent");
@@ -40,6 +59,7 @@ function store(k, v){ try { if (v === undefined) return localStorage.getItem(k);
 
 /* ---------- 3. SUIVI DES CONVERSIONS ---------- */
 function trackConversion(kind, place){
+  JDK_STAT(kind);
   // Événement GA4 / balise Google (toujours envoyé)
   gtagSafe("event", kind === "call" ? "click_call" : kind === "whatsapp" ? "click_whatsapp" : kind === "booking" ? "book_appointment" : "generate_lead", {
     event_category: "contact", event_label: place || "", page_path: location.pathname
@@ -94,6 +114,7 @@ function initEstimator(form, onChange){
       box.classList.add("show");
     }
     if (!silent) gtagSafe("event", "price_estimate", { service: v.service, marque: v.marque, annee: v.annee, type_cle: v.typeCle });
+    if (!silent && v.service && !(initEstimator.sent = initEstimator.sent || {})[v.service]) { initEstimator.sent[v.service] = 1; JDK_STAT("estimate", { s: v.service }); }
     if (onChange) onChange(v, r);
   }
   form.addEventListener("change", function(){ update(false); });

@@ -24,10 +24,20 @@ head: <script src="/assets/js/admin.js" defer></script>
           <button class="btn btn-ghost btn-sm" id="adm-next" type="button">Semaine ›</button>
         </div>
       </div>
+      <div class="adm-tabs" role="tablist">
+        <button type="button" class="btn btn-dark btn-sm" data-tab="planning" aria-pressed="true">Planning</button>
+        <button type="button" class="btn btn-ghost btn-sm" data-tab="stats" aria-pressed="false">Statistiques du site</button>
+      </div>
+      <div id="adm-stats" hidden>
+        <div class="adm-nav" style="margin:6px 0 14px"><button type="button" class="btn btn-ghost btn-sm" data-days="1">Aujourd'hui</button><button type="button" class="btn btn-ghost btn-sm" data-days="7">7 jours</button><button type="button" class="btn btn-ghost btn-sm" data-days="30">30 jours</button></div>
+        <div id="adm-stats-body"><p style="color:var(--muted)">Chargement…</p></div>
+      </div>
+      <div id="adm-planning">
       <p class="adm-legend"><span class="lg free"></span>Libre (cliquer pour bloquer) <span class="lg blocked"></span>Bloqué <span class="lg taken"></span>Réservé <span class="lg busy"></span>Pris dans votre agenda</p>
       <div id="adm-days"></div>
       <h2 style="font-size:1.25rem;margin-top:30px">Prochains rendez-vous</h2>
       <div id="adm-list"></div>
+      </div>
     </div>
   </div>
 </section>
