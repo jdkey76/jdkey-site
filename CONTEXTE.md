@@ -31,5 +31,10 @@ Mis à jour le 21/10/2026.
 - Règle : passer en « maximiser les conversions » vers 30 vrais appels. Les conversions « itinéraire » de la campagne intelligente ne sont pas modifiables par l'API.
 - Premiers résultats : 19/10 = 6 appels pour 10,58 € ; 20/10 = 11,79 €, 16 clics, 4 demandes (dont 1re réservation en ligne : double 407, jeudi 22/10 14h).
 
+## Journal des demandes (suivi commercial)
+- Page privée Claude : https://claude.ai/artifact/G1yBE2EoszJLLr38nf97vk (base « demandes », 1 document par appel : date, véhicule, année, prestation, lieu, prix, statut attente/gagné/perdu, source, raison).
+- JD KEY envoie un récap chaque soir → Claude l'enregistre. Aux bilans, Claude lit toute la base (ArtifactData list « demandes ») pour l'analyse.
+- Groupe d'annonces « 5 – Marque JD KEY » mis en pause le 21/10 (déjà n°1 en naturel sur le nom).
+
 ## À faire
 Voir A-FAIRE.md. Bilan hebdomadaire Google Ads prévu lundi 26/10 au soir.
