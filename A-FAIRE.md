@@ -17,5 +17,11 @@
 - [ ] Google Ads : objectifs spécifiques à la campagne Search (appels, contact, formulaire, réservation)
 - [ ] Demandes d'avis automatiques : lien d'avis Google (REVIEW_URL) + compte Brevo (BREVO_API_KEY)
 
+## Référencement naturel (21/10)
+- Pages services indexées le 18-19/10 ; FAQ « explorée, non indexée ». Retouches faites : « serrurier voiture » (accueil), « refaire une clé » (page double), question « clé minute » (FAQ).
+- [ ] Fin novembre : refaire le point Search Console (requêtes par page)
+- [ ] Fiche Google : publier les 25 photos d'intervention petit à petit (3 par semaine)
+- [ ] Annuaires locaux (PagesJaunes, Mappy…) avec adresse et téléphone identiques
+
 ## Programmé
 - Lundi 26/10 à 20 h : bilan hebdomadaire Google Ads (rappel dans la conversation)

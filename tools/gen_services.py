@@ -50,7 +50,7 @@ PAGES = [
   },
   {
     "slug": "double-cle-voiture-rouen", "key": "double", "service": "double", "urgent": False,
-    "title": "Double de Clé Voiture Rouen – dès 80 € | JD KEY",
+    "title": "Double de Clé Voiture Rouen – Refaire une Clé dès 80 € | JD KEY",
     "description": "Double de clé de voiture à Rouen : télécommande, carte Renault, clé à puce. De 80 à 250 € selon le modèle, prix affiché en ligne. RDV 7j/7.",
     "og": "Double de clé de voiture à Rouen – JD KEY",
     "crumb": "Double de clé", "h1": "Double de clé de voiture, <span>prix affiché selon votre modèle</span>",
@@ -61,7 +61,7 @@ PAGES = [
     "card_rows": [("Clé simple sans boutons (puce ID46 / ID48)", "80 – 90 €"), ("Clé télécommande ID46 (PSA, Renault…)", "130 – 135 €"), ("Clé télécommande ID48 (groupe VW)", "140 €"), ("Carte Renault (Mégane 3, Clio 4…)", "140 – 150 €"), ("Clé plateforme MQB (Golf 7, Polo 6…)", "160 – 170 €"), ("Modèles récents PSA, Renault (4A)", "180 – 230 €"), ("Modèles récents groupe VW", "dès 250 €")],
     "card_note": "Prix au local de Saint-Étienne-du-Rouvray. Déplacement possible en supplément, annoncé avant. <a href=\"/tarifs/\">Toute la grille</a>",
     "offer": {"minPrice": 80, "priceCurrency": "EUR"},
-    "h2": "Un double fiable, programmé comme l'original",
+    "h2": "Refaire une clé de voiture, programmée comme l'original",
     "body": [
         "Un double de clé moderne comprend deux parties : la <b>lame</b>, taillée à l'identique, et l'<b>électronique</b> (puce antidémarrage et télécommande d'ouverture), qui doit être enregistrée dans le véhicule.",
         "Le prix dépend de cette électronique. Une clé à puce ID46 (fréquente sur les Peugeot, Renault et Citroën d'avant 2015) se copie rapidement ; une carte Renault 4A ou une clé de Golf 7 (plateforme MQB) demande un matériel plus spécifique. Le simulateur ci-dessous vous donne le prix exact de votre modèle.",
