@@ -36,5 +36,9 @@ Mis à jour le 21/10/2026.
 - JD KEY envoie un récap chaque soir → Claude l'enregistre. Aux bilans, Claude lit toute la base (ArtifactData list « demandes ») pour l'analyse.
 - Groupe d'annonces « 5 – Marque JD KEY » mis en pause le 21/10 (déjà n°1 en naturel sur le nom).
 
+## Bilan au 21/10 (pour reprendre)
+- 19-21/10 : 30,61 € de pub, 15 contacts (~2 €/contact), 2 gagnés (Fiesta 130 €, ouverture 207 80 €), 1 perdu (Clio 3, concurrent à 150 € selon le client), ~1 460 € de devis en attente. Google Ads ne compte que ~4 contacts sur 15 : le reste vient de la fiche Google / du site → demander la source à chaque appel.
+- Stats du site (mesure active depuis le 20/10 23 h) : 21/10 = 32 visites (11 annonce, 4 Google naturel, 17 directes dont visites perso), 14 simulations dont 11 double, 2 clics appel, 9 vues réservation sans réservation. Lecture : navigateur de l'app Claude, code saisi par JD KEY, puis fetch /api/stats?days=N avec x-admin-pin.
+
 ## À faire
 Voir A-FAIRE.md. Bilan hebdomadaire Google Ads prévu lundi 26/10 au soir.

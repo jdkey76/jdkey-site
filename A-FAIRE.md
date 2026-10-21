@@ -23,5 +23,10 @@
 - [ ] Fiche Google : publier les 25 photos d'intervention petit à petit (3 par semaine)
 - [ ] Annuaires locaux (PagesJaunes, Mappy…) avec adresse et téléphone identiques
 
+## Relances 22/10 (par valeur)
+- [ ] Camry 320 € · 207 Gros-Theil 230 € · CLK 200 € · Clio 4 150-230 € · BMW 120-160 € · Audi A1 100 €
+- [ ] Spring 12 h (190 €) · 407 14 h (réservation en ligne, prix à noter)
+- [ ] Rappeler les appels manqués sous 10 min ; message d'absence WhatsApp
+
 ## Programmé
 - Lundi 26/10 à 20 h : bilan hebdomadaire Google Ads (rappel dans la conversation)
