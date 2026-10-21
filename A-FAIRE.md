@@ -6,6 +6,9 @@
 - [ ] Premières statistiques : espace planning → onglet « Statistiques du site »
 
 ## À mettre en place
+- [ ] Logo dans les résultats Google : demander l'indexation de la page d'accueil dans Search Console (fait le 21/10 ? sinon le faire), puis vérifier sous 1-3 semaines
+- [ ] Google Ads : logo d'entreprise en cours d'examen (21/10) → vérifier qu'il est approuvé
+- [ ] Fiche Google : mettre le même logo (logo-jdkey-600.png)
 - [x] Message vocal pour les appels manqués
 - [ ] Message d'absence WhatsApp Business
 - [ ] Demander à chaque client « Comment m'avez-vous trouvé ? »

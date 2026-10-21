@@ -49,7 +49,9 @@ HEAD = """<!doctype html>
 <meta property="og:description" content="{description}">
 <meta property="og:url" content="{url}">
 <meta property="og:image" content="{site}/assets/img/og-jdkey.jpg">
-<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/img/favicon-jdkey-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon-jdkey.png">
 {gtag}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -76,7 +78,7 @@ def main():
     if os.path.exists(OUT): shutil.rmtree(OUT)
     os.makedirs(OUT)
     shutil.copytree(os.path.join(ROOT, "assets"), os.path.join(OUT, "assets"))
-    for f in ("robots.txt", "_redirects", "_headers"):
+    for f in ("robots.txt", "_redirects", "_headers", "favicon.ico"):
         p = os.path.join(ROOT, f)
         if os.path.exists(p): shutil.copy(p, OUT)
     ver = datetime.datetime.now().strftime("%Y%m%d%H%M")

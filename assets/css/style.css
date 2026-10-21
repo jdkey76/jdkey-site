@@ -66,7 +66,7 @@ p{margin:0 0 1em}
 .site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--line)}
 .site-header .wrap{display:flex;align-items:center;gap:20px;height:70px}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
-.logo svg{width:34px;height:34px}
+.logo svg,.logo img{width:34px;height:34px}
 .logo-text{font-weight:500;font-size:1.5rem;letter-spacing:.14em;line-height:1}
 .logo-text small{display:block;font-size:.6rem;letter-spacing:.22em;color:var(--gold-dk);font-weight:700;margin-top:4px}
 .nav{margin-left:auto;display:flex;gap:4px;align-items:center}
@@ -249,6 +249,7 @@ p{margin:0 0 1em}
 .site-footer a{text-decoration:none}
 .site-footer a:hover{color:var(--gold-lt)}
 .site-footer .logo{color:#fff;margin-bottom:14px}
+.site-footer .logo img{filter:brightness(0) invert(1)}
 .legal{border-top:1px solid rgba(255,255,255,.08);margin-top:40px;padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.82rem}
 @media (max-width:900px){.footer-grid{grid-template-columns:1fr 1fr}}
 @media (max-width:560px){.footer-grid{grid-template-columns:1fr}}

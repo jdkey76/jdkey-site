@@ -5,6 +5,7 @@ Mis à jour le 21/10/2026.
 - JD KEY, serrurier automobile agréé SERMI, 7 rue Guy de Maupassant, 76800 Saint-Étienne-du-Rouvray. Tél. 06 98 95 13 99, jdkey.contact@gmail.com, SIRET 938 428 711 00015.
 - Intervient 24h/24, 7j/7, Rouen et 30 km. Fiche Google : https://www.google.com/maps?cid=16242274737633797430
 - Charte : anthracite mat (#2b3436), or (#b8975f), blanc. Police Montserrat.
+- Logo officiel : clé + télécommande au-dessus de « JD KEY » (assets/img/logo-jdkey-600.png). Pictogramme seul : logo-jdkey-symbole.png (en-tête/pied du site) ; icônes : /favicon.ico, favicon-jdkey-192/512.png, apple-touch-icon-jdkey.png (depuis le 21/10).
 
 ## Prix (source unique : assets/js/pricing.js)
 - Ouverture : 80 € (7h-19h), 90 € (19h-21h), 110 € (après 21h) ; +20 € double condamnation groupe VW 2020+. Déplacement inclus à Rouen. Même tarif dimanche/fériés.
