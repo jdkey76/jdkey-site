@@ -17,9 +17,9 @@ noindex: true
   </div>
 </section>
 <script>
-  // Conversion "formulaire" : déclenchée une seule fois par envoi
+  // Conversion "formulaire" : une seule fois par envoi, et seulement si le formulaire a été rempli par une personne (voir main.js)
   window.addEventListener("load", function(){
-    try { if (sessionStorage.getItem("jdk_form_sent")) return; sessionStorage.setItem("jdk_form_sent", "1"); } catch(e){}
+    try { if (sessionStorage.getItem("jdk_form_ok") !== "1") return; sessionStorage.removeItem("jdk_form_ok"); } catch(e){ return; }
     if (typeof trackConversion === "function") trackConversion("form", "formulaire-contact");
   });
 </script>

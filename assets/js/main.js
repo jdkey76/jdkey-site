@@ -57,6 +57,23 @@ var JDK_STAT = (function(){
   $all("[data-open-consent]").forEach(function(b){ b.addEventListener("click", function(e){ e.preventDefault(); banner.classList.add("show"); }); });
 })();
 
+/* ---------- Formulaire de rappel : ne compter que les envois faits par une personne ----------
+   Un robot remplit et envoie en une fraction de seconde, sans frappe ni toucher.
+   On marque l'envoi comme « humain » (lu par /merci/) seulement après une vraie saisie d'au moins 4 s. */
+(function(){
+  var f = document.querySelector('form[name="contact"]');
+  if (!f) return;
+  var first = 0, touches = 0;
+  function mark(){ touches++; if (!first) first = Date.now(); }
+  f.addEventListener("keydown", mark); f.addEventListener("pointerdown", mark);
+  f.addEventListener("submit", function(){
+    try {
+      if (touches >= 3 && Date.now() - first >= 4000) sessionStorage.setItem("jdk_form_ok", "1");
+      else sessionStorage.removeItem("jdk_form_ok");
+    } catch(e){}
+  });
+})();
+
 /* ---------- 3. SUIVI DES CONVERSIONS ---------- */
 function trackConversion(kind, place){
   JDK_STAT(kind);
