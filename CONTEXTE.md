@@ -36,6 +36,10 @@ Mis à jour le 21/10/2026.
 - JD KEY envoie un récap chaque soir → Claude l'enregistre. Aux bilans, Claude lit toute la base (ArtifactData list « demandes ») pour l'analyse.
 - Groupe d'annonces « 5 – Marque JD KEY » mis en pause le 21/10 (déjà n°1 en naturel sur le nom).
 
+## Prospection LinkedIn (depuis le 22/10)
+- Page privée : https://claude.ai/artifact/2LMAphLGV6XXxNzK9hf2UL (base « prospects » : 20 cibles — loueurs, flottes LLD, public, assisteurs, concessions, garages, auto-école — avec invitation et message personnalisés, statut, suivi). JD KEY envoie lui-même (5 invitations/jour) ; Claude prépare une nouvelle liste chaque semaine.
+- Meta Ads : en attente. Point programmé le 30/11/2026 à 20 h dans cette conversation.
+
 ## Inokey
 - Abonnement 130 €/mois : envoie toutes les demandes de doubles et pertes totales de la région, avec les coordonnées des clients (1er client connu : Kadjar 2017, 280 €, le 22/10). À comparer chaque mois à Google Ads.
 
