@@ -16,7 +16,7 @@ Mis à jour le 21/10/2026.
 ## Le site (en ligne sur https://jdkey-auto-rouen.fr)
 - Code : GitHub jdkey76/jdkey-site (branche main) → Netlify déploie automatiquement à chaque envoi.
 - Générateur maison : `python3 build.py` (src/pages + src/partials → public/). Pages services et villes générées par tools/gen_services.py et tools/gen_zone.py.
-- 20 pages indexées : accueil, ouverture, perte, double, programmation, clé cassée/coque, tarifs (+ simulateur), réservation, FAQ, zone + 7 villes (Rouen, St-Étienne-du-Rouvray, Sotteville, Mont-St-Aignan, Grand-Quevilly, Elbeuf, Barentin), à propos, mentions, confidentialité, 404.
+- 21 pages indexées (dont, depuis le 22/10, /cle-perdue-remboursement-assurance/ : plafonds clés par banque, relevés le 22/10/2026, à revérifier tous les 6 mois) : accueil, ouverture, perte, double, programmation, clé cassée/coque, tarifs (+ simulateur), réservation, FAQ, zone + 7 villes (Rouen, St-Étienne-du-Rouvray, Sotteville, Mont-St-Aignan, Grand-Quevilly, Elbeuf, Barentin), à propos, mentions, confidentialité, 404.
 - Réservation sur mesure : créneaux 1 h, 9h-18h, 7j/7 (règles dans netlify/lib/core.mjs). Fonctions Netlify + Netlify Blobs.
 - Espace privé : /admin-planning/ (code ADMIN_PIN) avec 3 onglets : Planning, Statistiques du site (mesure anonyme sans cookie), Avis clients (demande d'avis : envoi manuel SMS/WhatsApp en 1 geste ; automatique à 19h30 si BREVO_API_KEY).
 - Agenda : flux des réservations /api/agenda.ics?cle=AGENDA_KEY (abonné sur l'iPhone) ; agenda perso iCloud (GCAL_ICS_URL) qui bloque les créneaux, y compris les rendez-vous récurrents.
