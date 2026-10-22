@@ -92,7 +92,7 @@ def main():
             title=html.escape(meta["title"]), description=html.escape(meta["description"]),
             og_title=html.escape(meta.get("og_title", meta["title"])), url=SITE + path, site=SITE,
             robots="noindex, follow" if noindex else "index, follow, max-image-preview:large",
-            gtag=PARTS["gtag"], extra_head=extra + "\n" + meta.get("head", ""), ver=ver)
+            gtag=PARTS["gtag"], extra_head=extra + "\n" + re.sub(r'(/assets/js/[\w-]+\.js)"', r'\1?v=' + ver + '"', meta.get("head", "")), ver=ver)
         page += "\n" + PARTS["header"].replace(f'href="{path}" class="nav-link"', f'href="{path}" class="nav-link" aria-current="page"')
         page += "<main id=\"contenu\">" + body + PARTS["footer"].replace("/assets/js/", "/assets/js/").replace(".js\" defer", ".js?v=" + ver + "\" defer") + "</body>\n</html>\n"
         dest = os.path.join(OUT, path.strip("/"), "index.html") if path != "/" else os.path.join(OUT, "index.html")

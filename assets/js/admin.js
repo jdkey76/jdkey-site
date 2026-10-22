@@ -1,4 +1,6 @@
 /* JD KEY — Espace planning (page /admin-planning/) */
+/* « Rester connecté » : le code est gardé dans ce navigateur (localStorage) et recopié dans la session au chargement. */
+(function(){ try { if (!sessionStorage.getItem("jdk_pin")) { var k = localStorage.getItem("jdk_pin_keep"); if (k) sessionStorage.setItem("jdk_pin", k); } } catch(e){} })();
 document.addEventListener("DOMContentLoaded", function(){
   var el = function(id){ return document.getElementById(id); };
   var pin = ""; try { pin = sessionStorage.getItem("jdk_pin") || ""; } catch(e){}
@@ -14,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function(){
     api("GET", null, "?days=7" + (from ? "&from=" + from : "")).then(function(d){
       el("adm-login").hidden = true; el("adm-app").hidden = false;
       from = d.days[0].date; render(d);
-    }).catch(function(e){ el("adm-login").hidden = false; el("adm-app").hidden = true; if (pin) { el("adm-err").textContent = e.message; el("adm-err").hidden = false; } });
+    }).catch(function(e){ el("adm-login").hidden = false; el("adm-app").hidden = true; if (pin) { el("adm-err").textContent = e.message; el("adm-err").hidden = false; try { localStorage.removeItem("jdk_pin_keep"); } catch(x){} } });
   }
   function render(d){
     var html = "", list = "";
@@ -51,7 +53,8 @@ document.addEventListener("DOMContentLoaded", function(){
     b.disabled = true;
     api("POST", { action: act, date: date, heure: h }).then(load).catch(function(err){ alert(err.message); b.disabled = false; });
   });
-  el("adm-form").addEventListener("submit", function(e){ e.preventDefault(); pin = el("adm-pin").value; try { sessionStorage.setItem("jdk_pin", pin); } catch(x){} load(); });
+  el("adm-form").addEventListener("submit", function(e){ e.preventDefault(); pin = el("adm-pin").value; try { sessionStorage.setItem("jdk_pin", pin); if (el("adm-keep") && el("adm-keep").checked) localStorage.setItem("jdk_pin_keep", pin); else localStorage.removeItem("jdk_pin_keep"); } catch(x){} load(); });
+  if (el("adm-logout")) el("adm-logout").addEventListener("click", function(){ try { sessionStorage.removeItem("jdk_pin"); localStorage.removeItem("jdk_pin_keep"); } catch(x){} location.reload(); });
   function shift(n){ var d = new Date(from + "T12:00:00Z"); d.setUTCDate(d.getUTCDate() + n); from = d.toISOString().slice(0, 10); load(); }
   el("adm-prev").addEventListener("click", function(){ shift(-7); });
   el("adm-next").addEventListener("click", function(){ shift(7); });

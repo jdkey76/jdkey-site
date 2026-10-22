@@ -11,6 +11,7 @@ head: <script src="/assets/js/admin.js" defer></script><style>.mobile-bar,.float
       <p style="color:var(--muted)">Entrez votre code d'accès.</p>
       <form id="adm-form">
         <div class="field"><label for="adm-pin">Code</label><input id="adm-pin" type="password" inputmode="numeric" autocomplete="current-password" required></div>
+        <label style="display:flex;gap:8px;align-items:center;margin:4px 0 14px;font-size:.92rem"><input type="checkbox" id="adm-keep" checked style="width:auto"> Rester connecté sur cet appareil</label>
         <p class="form-error" id="adm-err" hidden></p>
         <button class="btn btn-gold btn-block" type="submit">Ouvrir le planning</button>
       </form>
@@ -22,6 +23,7 @@ head: <script src="/assets/js/admin.js" defer></script><style>.mobile-bar,.float
           <button class="btn btn-ghost btn-sm" id="adm-prev" type="button">‹ Semaine</button>
           <button class="btn btn-ghost btn-sm" id="adm-today" type="button">Aujourd'hui</button>
           <button class="btn btn-ghost btn-sm" id="adm-next" type="button">Semaine ›</button>
+          <button class="btn btn-ghost btn-sm" id="adm-logout" type="button">Se déconnecter</button>
         </div>
       </div>
       <div class="adm-tabs" role="tablist">
