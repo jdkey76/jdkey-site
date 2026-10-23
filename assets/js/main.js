@@ -76,7 +76,8 @@ var JDK_STAT = (function(){
 
 /* ---------- 3. SUIVI DES CONVERSIONS ---------- */
 function trackConversion(kind, place){
-  JDK_STAT(kind);
+  var sim = ""; try { sim = sessionStorage.getItem("jdk_sim") ? "sim" : ""; } catch(e){}
+  JDK_STAT(kind, sim ? { s: sim } : null);   // « sim » = le visiteur a obtenu un prix avec le simulateur avant de contacter
   // Événement GA4 / balise Google (toujours envoyé)
   gtagSafe("event", kind === "call" ? "click_call" : kind === "whatsapp" ? "click_whatsapp" : kind === "booking" ? "book_appointment" : "generate_lead", {
     event_category: "contact", event_label: place || "", page_path: location.pathname
@@ -132,6 +133,13 @@ function initEstimator(form, onChange){
     }
     if (!silent) gtagSafe("event", "price_estimate", { service: v.service, marque: v.marque, annee: v.annee, type_cle: v.typeCle });
     if (!silent && v.service && !(initEstimator.sent = initEstimator.sent || {})[v.service]) { initEstimator.sent[v.service] = 1; JDK_STAT("estimate", { s: v.service }); }
+    // Simulation « terminée » : un prix s'affiche pour une marque et une année. Compté une fois par véhicule et par visite.
+    if (!silent && r && v.service && v.marque && v.annee) {
+      var key = [v.service, v.marque, v.annee, v.typeCle || ""].join("|");
+      var done = {}; try { done = JSON.parse(sessionStorage.getItem("jdk_est_done") || "{}"); } catch(e){}
+      if (!done[key]) { done[key] = 1; try { sessionStorage.setItem("jdk_est_done", JSON.stringify(done)); sessionStorage.setItem("jdk_sim", "1"); } catch(e){}
+        JDK_STAT("estdone", { s: v.service, mk: v.marque, an: v.annee, tc: v.typeCle || "" }); }
+    }
     if (onChange) onChange(v, r);
   }
   form.addEventListener("change", function(){ update(false); });

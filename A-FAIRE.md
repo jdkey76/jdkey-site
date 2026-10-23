@@ -28,5 +28,9 @@
 - [ ] Spring 12 h (190 €) · 407 14 h (réservation en ligne, prix à noter)
 - [ ] Rappeler les appels manqués sous 10 min ; message d'absence WhatsApp
 
+## Simulateur → contacts (mesure ajoutée le 23/10)
+- Avant le 23/10 : 32 simulations « double » (21-23/10) pour ~6 demandes de double hors Inokey et 3 RDV. Comptage approximatif (une simulation par service et par page vue).
+- Depuis le 23/10 : le site compte les prix obtenus avec véhicule (marque, année, type de clé) et les contacts qui suivent une simulation (onglet Statistiques → « Simulations → contacts »). À analyser au bilan, avec la question « avez-vous utilisé le simulateur ? » posée aux clients.
+
 ## Programmé
 - Lundi 26/10 à 20 h : bilan hebdomadaire Google Ads (rappel dans la conversation)

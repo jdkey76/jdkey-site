@@ -100,6 +100,9 @@ document.addEventListener("DOMContentLoaded", function(){
         '<div class="adm-card st-block"><h3>Pages d\'arrivée</h3>' + top(merge(D, "entrees")) + '</div>' +
         '<div class="adm-card st-block"><h3>Pages les plus vues</h3>' + top(merge(D, "pagesTop")) + '</div>' +
         '<div class="adm-card st-block"><h3>Prix consultés (simulateur)</h3>' + top(merge(D, "estimations"), SERV) + '</div>' +
+        '<div class="adm-card st-block"><h3>Simulations → contacts</h3>' + (function(){ var a = merge(D, "apresSimulation"), c = (a.call || 0) + (a.whatsapp || 0) + (a.form || 0) + (a.booking || 0), s = sum(D, "estdone");
+            return '<div class="st-row"><span>Prix obtenus (véhicule renseigné)</span><b>' + s + '</b></div><div class="st-row"><span>Contacts après une simulation</span><b>' + c + '</b></div><div class="st-row"><span>dont appels / WhatsApp / réservations</span><b>' + (a.call || 0) + ' / ' + (a.whatsapp || 0) + ' / ' + (a.booking || 0) + '</b></div><div class="st-row"><span>Taux simulation → contact</span><b>' + (s ? Math.round(c / s * 100) + " %" : "–") + '</b></div>'; })() + '</div>' +
+        '<div class="adm-card st-block"><h3>Véhicules simulés</h3>' + top(merge(D, "vehicules"), null, 10) + '</div>' +
         '<div class="adm-card st-block"><h3>Heures d\'arrivée</h3>' + top(merge(D, "heures"), null, 24).replace(/<span>(\d+)<\/span>/g, "<span>$1 h</span>") + '</div>' +
         '</div><p class="small" style="color:var(--muted);margin-top:10px">Mesure anonyme, sans cookie. Les clics « Appeler » comptent l\'intention d\'appeler depuis le site, pas les appels décrochés.</p>';
       el("adm-stats-body").innerHTML = html;
