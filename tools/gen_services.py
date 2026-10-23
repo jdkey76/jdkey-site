@@ -233,6 +233,7 @@ priority: 0.9
       </table>
       <p class="est-note" style="margin-bottom:14px">{p["card_note"]}</p>
       {card_cta}
+      {('<a class="ins-cta" href="/cle-perdue-remboursement-assurance/"><b>Remboursé par votre banque ?</b><span>Voir les plafonds par banque →</span></a>' if p["key"] in ("perte", "double") else "")}
     </div>
   </div>
 </section>
