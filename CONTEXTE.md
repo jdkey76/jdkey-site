@@ -51,7 +51,8 @@ Mis à jour le 21/10/2026.
 - Google Ads Search 19-29/10 : 83,32 € (+5,59 € campagne intelligente le 19/10), 0,51-0,59 €/clic, CTR 15 %. Semaine 23-29 : 49,81 €, 97 clics, budget perdu 27 %. La requête « jd key auto rouen » déclenche encore les groupes Double et Urgence (3,39 € sur la semaine) → exclure « jd key ».
 - Site 21-29/10 : 212 visites (114 annonce, 49 Google naturel), 104 simulations « double », 12 clics appel, 7 WhatsApp, 3 réservations.
 - Search Console 20-26/10 vs semaine d'avant : 26 clics (+24 %), 944 affichages (+87 %) ; l'accueil reste en position 1-4 sur « serrurier automobile rouen ».
-- ⚠ Netlify : dernier déploiement = commit du 22/10 22:41. Les modifications du 23/10 (menu « Remboursement », encart, mesure des simulations) ne sont pas en ligne.
+- ⚠ Netlify (offre gratuite, 300 crédits/mois, 15 crédits par mise en ligne = 20 mises en ligne/mois) : crédits épuisés le 22/10 → envois du 23/10 « Skipped ». Depuis le 29/10 : les commits qui ne touchent que des .md ne déclenchent plus de build (netlify.toml, ignore). Règle : regrouper les modifications du site en une seule mise en ligne.
+- Google Ads : mots exclus « jd key », « jdkey », « jd keys » (expression) ajoutés le 29/10 au niveau campagne.
 
 ## Bilan au 21/10 (pour reprendre)
 - 19-21/10 : 30,61 € de pub, 15 contacts (~2 €/contact), 2 gagnés (Fiesta 130 €, ouverture 207 80 €), 1 perdu (Clio 3, concurrent à 150 € selon le client), ~1 460 € de devis en attente. Google Ads ne compte que ~4 contacts sur 15 : le reste vient de la fiche Google / du site → demander la source à chaque appel.

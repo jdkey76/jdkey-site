@@ -24,12 +24,12 @@
 - [ ] Annuaires locaux (PagesJaunes, Mappy…) avec adresse et téléphone identiques
 
 ## Urgent (29/10)
-- [ ] Netlify : vérifier l'onglet Deploys (les envois du 23/10 ne sont pas en ligne) et relancer le déploiement
-- [ ] Google Ads : exclure « jd key » / « jdkey » de la campagne (la marque passe encore par d'autres groupes)
-- [ ] Licence tablette renouvelée ? → Clio 4 (225 €, déplacement offert), BMW Série 5 (230 €)
+- [ ] Netlify : crédits épuisés (« Skipped due to account credit usage exceeded »). Voir la date de remise à zéro dans Usage & billing, ou passer en Personal (9 $/mois, 1 000 crédits), puis « Trigger deploy »
+- [x] Google Ads : « jd key », « jdkey », « jd keys » exclus (29/10)
+- [x] Licence tablette renouvelée → refaire Clio 4 (225 €, déplacement offert), appeler BMW Série 5 (230 €) à réception de la fourniture
 
 ## Résultats à noter dans le journal
-- [ ] Sandero 2022 (RDV 24/10, 185 €) · Fiesta 2019 mains libres (180 €) · moto (essai clone 80 €, 26/10) · réparation clé Renault (RDV site 23/10 17 h) · Twingo 2010 (16 h le 29/10) · Twingo taillage (soir 29/10) · Audi A4 Caudebec (90 €, confirmer)
+- [ ] Fiesta 2019 mains libres (vendredi 30/10, 180 €) · Sandero 2022 (samedi 31/10, 185 €) · Twingo 2010 et Twingo taillage (fin d'après-midi 29/10) · réparation clé Renault (RDV site du 23/10 17 h : fait ?)
 
 ## Relances en cours (par valeur)
 - [ ] Espace 4 (450 €) · Porsche Cayenne (390 €) · BMW Série 1 2015 (250-330 €) · C3 Picasso Bourgtheroulde (230-270 €, assurance CB OK) · CLK (200 €) · 206 (150 €) · BMW Série 3 (120-160 €) · Iveco 2003 (attente plaque) · Alfa Romeo (fraiseuse)

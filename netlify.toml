@@ -1,6 +1,8 @@
 [build]
   command = "python3 build.py"
   publish = "public"
+  # Ne pas reconstruire (ni consommer de crédits Netlify) quand seuls les fichiers de suivi .md changent
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- . ':(exclude)*.md'"
 
 [functions]
   directory = "netlify/functions"
