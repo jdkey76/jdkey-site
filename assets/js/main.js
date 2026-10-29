@@ -24,6 +24,7 @@ var JDK_STAT = (function(){
   var ref = document.referrer, host = ref ? (function(){ try { return new URL(ref).hostname; } catch(e){ return ""; } })() : "";
   var q = location.search, entry = host !== location.hostname;
   var src = /[?&](gclid|gbraid|wbraid)=/.test(q) || /utm_medium=cpc/.test(q) ? "ads"
+    : /utm_source=gbp/.test(q) ? "fiche"   // lien « Site web » de la fiche Google (UTM ajouté sur la fiche)
     : !entry ? "interne" : !host ? "direct" : /google\./.test(host) ? "google" : /bing\.|qwant|duckduckgo|ecosia|yahoo/.test(host) ? "bing"
     : /facebook|instagram|tiktok|snapchat|whatsapp|linkedin|t\.co/.test(host) ? "social" : "other";
   var mob = window.matchMedia && matchMedia("(max-width:820px)").matches ? 1 : 0;

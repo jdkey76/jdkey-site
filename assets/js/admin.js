@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function(){
 document.addEventListener("DOMContentLoaded", function(){
   var el = function(id){ return document.getElementById(id); };
   if (!el("adm-stats")) return;
-  var SRC = { ads: "Google Ads", google: "Google (naturel)", bing: "Autres moteurs", social: "Réseaux sociaux", direct: "Accès direct", other: "Autres sites" };
+  var SRC = { ads: "Google Ads", fiche: "Fiche Google (Maps)", google: "Google (naturel)", bing: "Autres moteurs", social: "Réseaux sociaux", direct: "Accès direct", other: "Autres sites" };
   var SERV = { ouverture: "Ouverture", perte: "Perte totale", double: "Double", programmation: "Programmation", demarrage: "Démarrage", coque: "Clé cassée / coque" };
   var esc = function(s){ return String(s).replace(/[&<>]/g, function(c){ return { "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]; }); };
   function pin(){ try { return sessionStorage.getItem("jdk_pin") || ""; } catch(e){ return ""; } }

@@ -23,7 +23,15 @@
 - [ ] Fiche Google : publier les 25 photos d'intervention petit à petit (3 par semaine)
 - [ ] Annuaires locaux (PagesJaunes, Mappy…) avec adresse et téléphone identiques
 
+## Fiche Google (analyse du 29/10)
+- [ ] Catégorie principale : « Serrurier » (ou « Serrurier automobile » si proposée) au lieu de « Service de reproduction de clés » ; secondaires : reproduction de clés, serrurerie d'urgence
+- [ ] Lien « Site web » : https://jdkey-auto-rouen.fr/?utm_source=gbp&utm_medium=organic (mesuré comme « Fiche Google » dans les statistiques)
+- [ ] Lien de rendez-vous : https://jdkey-auto-rouen.fr/reservation/?utm_source=gbp&utm_medium=organic
+- [ ] Description, services avec prix, zone desservie (villes), attributs paiement
+- [ ] 1 post par semaine ; réponses aux avis avec prestation + ville ; viser 1 avis par intervention (Auto solutions clé : 252 avis, JD KEY : 245)
+
 ## Urgent (29/10)
+- [ ] 30/10 : Netlify → Deploys → « Trigger deploy » → « Deploy project » (1 seule mise en ligne pour tout publier)
 - [ ] Netlify : crédits épuisés (« Skipped due to account credit usage exceeded »). Voir la date de remise à zéro dans Usage & billing, ou passer en Personal (9 $/mois, 1 000 crédits), puis « Trigger deploy »
 - [x] Google Ads : « jd key », « jdkey », « jd keys » exclus (29/10)
 - [x] Licence tablette renouvelée → refaire Clio 4 (225 €, déplacement offert), appeler BMW Série 5 (230 €) à réception de la fourniture

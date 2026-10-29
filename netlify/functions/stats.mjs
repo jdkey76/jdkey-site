@@ -4,7 +4,7 @@
 import { store, json, checkAdmin, parisNow, addDays, newId } from "../lib/core.mjs";
 
 const TYPES = new Set(["pv", "call", "whatsapp", "form", "booking", "estimate", "estdone"]);
-const SOURCES = new Set(["ads", "google", "bing", "social", "direct", "other", "interne"]);
+const SOURCES = new Set(["ads", "fiche", "google", "bing", "social", "direct", "other", "interne"]);
 
 export default async (req) => {
   const st = store();
