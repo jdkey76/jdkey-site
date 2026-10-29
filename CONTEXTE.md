@@ -43,6 +43,16 @@ Mis à jour le 21/10/2026.
 ## Inokey
 - Abonnement 130 €/mois : envoie toutes les demandes de doubles et pertes totales de la région, avec les coordonnées des clients (1er client connu : Kadjar 2017, 280 €, le 22/10). À comparer chaque mois à Google Ads.
 
+## Bilan au 29/10 (journal + Google Ads + site)
+- Journal 17-29/10 : 42 demandes (+2 appels manqués). 12 gagnées = 2 050 € (panier moyen 171 €), 11 RDV/commandes à venir = 1 420 €, 11 en attente = 2 200 €, 8 perdues.
+- Semaine 23-29/10 : 24 demandes, 8 gagnées, 1 410 € (contre 18 / 4 / 640 € la semaine d'avant).
+- Par prestation : double 15 demandes (2 faites, 7 RDV : délai long), perte totale 9 (3 gagnées à 190-300 €, 3 perdues sur le prix ou sans réponse), ouverture 4 (3 gagnées), programmation/démarrage 5 (3 gagnées).
+- Sources connues des gagnés : Google 4 (680 €), site 2 (230 €), partenaire dépanneur 1 (300 €), Inokey 1 (280 €), bouche-à-oreille 1 (190 €). 25 demandes sans source notée.
+- Google Ads Search 19-29/10 : 83,32 € (+5,59 € campagne intelligente le 19/10), 0,51-0,59 €/clic, CTR 15 %. Semaine 23-29 : 49,81 €, 97 clics, budget perdu 27 %. La requête « jd key auto rouen » déclenche encore les groupes Double et Urgence (3,39 € sur la semaine) → exclure « jd key ».
+- Site 21-29/10 : 212 visites (114 annonce, 49 Google naturel), 104 simulations « double », 12 clics appel, 7 WhatsApp, 3 réservations.
+- Search Console 20-26/10 vs semaine d'avant : 26 clics (+24 %), 944 affichages (+87 %) ; l'accueil reste en position 1-4 sur « serrurier automobile rouen ».
+- ⚠ Netlify : dernier déploiement = commit du 22/10 22:41. Les modifications du 23/10 (menu « Remboursement », encart, mesure des simulations) ne sont pas en ligne.
+
 ## Bilan au 21/10 (pour reprendre)
 - 19-21/10 : 30,61 € de pub, 15 contacts (~2 €/contact), 2 gagnés (Fiesta 130 €, ouverture 207 80 €), 1 perdu (Clio 3, concurrent à 150 € selon le client), ~1 460 € de devis en attente. Google Ads ne compte que ~4 contacts sur 15 : le reste vient de la fiche Google / du site → demander la source à chaque appel.
 - Stats du site (mesure active depuis le 20/10 23 h) : 21/10 = 32 visites (11 annonce, 4 Google naturel, 17 directes dont visites perso), 14 simulations dont 11 double, 2 clics appel, 9 vues réservation sans réservation. Lecture : navigateur de l'app Claude (case « Rester connecté » depuis le 22/10, sinon code saisi par JD KEY), puis fetch /api/stats?days=N avec x-admin-pin.

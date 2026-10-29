@@ -23,10 +23,17 @@
 - [ ] Fiche Google : publier les 25 photos d'intervention petit à petit (3 par semaine)
 - [ ] Annuaires locaux (PagesJaunes, Mappy…) avec adresse et téléphone identiques
 
-## Relances 22/10 (par valeur)
-- [ ] Camry 320 € · 207 Gros-Theil 230 € · CLK 200 € · Clio 4 150-230 € · BMW 120-160 € · Audi A1 100 €
-- [ ] Spring 12 h (190 €) · 407 14 h (réservation en ligne, prix à noter)
-- [ ] Rappeler les appels manqués sous 10 min ; message d'absence WhatsApp
+## Urgent (29/10)
+- [ ] Netlify : vérifier l'onglet Deploys (les envois du 23/10 ne sont pas en ligne) et relancer le déploiement
+- [ ] Google Ads : exclure « jd key » / « jdkey » de la campagne (la marque passe encore par d'autres groupes)
+- [ ] Licence tablette renouvelée ? → Clio 4 (225 €, déplacement offert), BMW Série 5 (230 €)
+
+## Résultats à noter dans le journal
+- [ ] Sandero 2022 (RDV 24/10, 185 €) · Fiesta 2019 mains libres (180 €) · moto (essai clone 80 €, 26/10) · réparation clé Renault (RDV site 23/10 17 h) · Twingo 2010 (16 h le 29/10) · Twingo taillage (soir 29/10) · Audi A4 Caudebec (90 €, confirmer)
+
+## Relances en cours (par valeur)
+- [ ] Espace 4 (450 €) · Porsche Cayenne (390 €) · BMW Série 1 2015 (250-330 €) · C3 Picasso Bourgtheroulde (230-270 €, assurance CB OK) · CLK (200 €) · 206 (150 €) · BMW Série 3 (120-160 €) · Iveco 2003 (attente plaque) · Alfa Romeo (fraiseuse)
+- [ ] Classer perdus si pas de nouvelles : Audi A1 (20/10), perte totale sans modèle (22/10), Partner (22/10)
 
 ## Simulateur → contacts (mesure ajoutée le 23/10)
 - Avant le 23/10 : 32 simulations « double » (21-23/10) pour ~6 demandes de double hors Inokey et 3 RDV. Comptage approximatif (une simulation par service et par page vue).
