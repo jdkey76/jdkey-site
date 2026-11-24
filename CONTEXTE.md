@@ -60,6 +60,14 @@ Mis à jour le 21/10/2026.
 - Pages : accueil 237, double 135, tarifs 128, réservation 78, perte 70, remboursement assurance 51.
 - Fiche Google : catégorie principale passée à « Serrurier » le 20/11 ; le lien fiche (utm gbp) est mesuré depuis le 10/11. Effet trop récent pour conclure (à revoir mi-décembre). Search Console n'est plus lisible via Adspirer (option payante « Plus » non prise) : lecture possible via le navigateur intégré si JD KEY y est connecté à Google.
 
+## Search Console (lu le 24/11, 28 j vs 28 j précédents)
+- Accès : compte rttrfyfy@gmail.com (propriétaire de la propriété https://jdkey-auto-rouen.fr/), lu via le navigateur intégré (u/1). Adspirer ne lit plus Search Console (option payante).
+- Total : 80 clics (71 avant), 3 420 impressions (2 340), CTR 2,3 %, position moyenne 14,8 (8).
+- Marque : « jd key auto rouen » 10 clics, position 2 ; « jd key » 8 clics.
+- Requêtes clés en position faible (page 4) malgré des impressions en forte hausse : « serrurier automobile rouen » 299 impr., pos. 37,6 (23,3 avant) ; « serrurier voiture rouen » 260 impr., pos. 37,9 ; « refaire clé voiture rouen » 184 impr., pos. 35,5.
+- Bonnes positions : « serrurier automobile autour de moi » 4,8 ; « serrurier auto » 6,1 ; « serrurier grand quevilly » 2,2 ; « programmation clé voiture » 2.
+- Conclusion : le site n'est pas encore bien classé sur les requêtes principales ; les clients viennent surtout des annonces et de la fiche. Piste : liens entrants locaux (annuaires, partenaires garages).
+
 ## Bilan au 29/10 (journal + Google Ads + site)
 - Journal 17-29/10 : 42 demandes (+2 appels manqués). 12 gagnées = 2 050 € (panier moyen 171 €), 11 RDV/commandes à venir = 1 420 €, 11 en attente = 2 200 €, 8 perdues.
 - Semaine 23-29/10 : 24 demandes, 8 gagnées, 1 410 € (contre 18 / 4 / 640 € la semaine d'avant).
