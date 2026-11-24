@@ -211,16 +211,18 @@ export function mobileFR(tel){
   if (d.startsWith("0") && d.length === 10) d = "33" + d.slice(1);
   return /^33[67]\d{8}$/.test(d) ? d : null;
 }
-export function reviewUrl(){ return process.env.REVIEW_URL || "https://www.google.com/maps?cid=16242274737633797430"; }
+export function reviewUrl(){ return process.env.REVIEW_URL || "https://g.page/r/CTal9pDRJmjhEBM/review"; }
 // Message écrit comme JD KEY l'écrirait lui-même. Caractères SMS standards (é, è, à : oui ; ç, ê, â : non).
 const AVIS_SVC = { ouverture: "pour l'ouverture de votre voiture", double: "pour votre double de clé", perte: "pour votre nouvelle clé",
   programmation: "pour la programmation de votre clé", demarrage: "pour votre souci de démarrage", coque: "pour la réparation de votre clé" };
+// AVIS_MOMENT : "mois" = envoi groupé en fin de mois (retard), "jour" = envoi le soir de la prestation.
+const AVIS_MOMENT = "mois";
 export function reviewMessage(prenom, service){
-  const p = String(prenom || "").split(" ")[0].replace(/[^\p{L}\-']/gu, "").slice(0, 20);
   const svc = AVIS_SVC[service] ? " " + AVIS_SVC[service] : "";
-  return `Bonjour${p ? " " + p : ""}, merci de m'avoir fait confiance${svc} aujourd'hui ! `
+  const quand = AVIS_MOMENT === "jour" ? " aujourd'hui" : " ce mois-ci";
+  return `Bonjour, merci de m'avoir fait confiance${svc}${quand} ! `
     + `Je suis artisan indépendant et chaque avis compte vraiment pour moi : pourriez-vous me laisser un petit mot sur Google ? `
-    + `Cela m'aiderait beaucoup. ${reviewUrl()} Bonne soirée, JD KEY`;
+    + `Cela m'aiderait beaucoup. ${reviewUrl()} Bonne soirée, Yahya - JD KEY`;
 }
 
 export async function queueFor(st, date){
