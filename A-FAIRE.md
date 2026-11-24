@@ -25,8 +25,8 @@
 
 ## Google Ads / Search Console (24/11)
 - [x] Campagne mise en veille par JD KEY du 21 au 24/11 (volontaire), réactivée le 24/11 à 17 h
-- [ ] Search Console : bien connecté côté Google, mais Adspirer ne le voit plus → le reconnecter dans Adspirer (Paramètres → Connexions → Google Search Console)
-- [ ] Mettre en pause le mot-clé « programmer clé voiture » (0 conversion pour 12,78 €) : en attente d'accord
+- Search Console : plus d'accès via Adspirer (abonnement Plus requis) → lire via le navigateur intégré
+- [ ] « programmer clé voiture » : garder, mais le corriger (requêtes « comment programmer / programmateur / clé vierge » à exclure, page programmation au lieu de la page double, prix indicatif) — en attente d'accord
 
 ## Journal — mis à jour le 24/11
 - [x] 64 prestations du 29/10 au 24/11 reportées ; point sur les devis fait le 24/11
@@ -34,7 +34,7 @@
 - Commandes : Jaguar XK 280 € (mauvaise clé reçue, à recommander)
 - Doivent revenir : Tiguan 230 € (urgence familiale), Iveco 80 € + ix35 180 € (même client)
 - À relancer : Seat Ateca 190 €, Citroën C3 2016 80 € (validé puis silence)
-- Pas encore de nouvelles : Chevrolet Aveo (ouverture), ouverture 120 € du 14/11
+- Pas encore de nouvelles : ouverture 120 € du 14/11
 
 ## Fiche Google (analyse du 29/10)
 - [ ] Catégorie principale : « Serrurier » (ou « Serrurier automobile » si proposée) au lieu de « Service de reproduction de clés » ; secondaires : reproduction de clés, serrurerie d'urgence
