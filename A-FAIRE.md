@@ -34,16 +34,16 @@
 - [ ] Message d'avis en mode « ce mois-ci » (envoi groupé fin novembre) : repasser AVIS_MOMENT à "jour" quand Yahya le demande
 
 ## Annuaires (liste du 24/11) — mêmes nom, adresse, téléphone partout
-- [ ] Apple Business Connect (Plans iPhone, Siri)
-- [ ] Bing Places (import direct depuis la fiche Google)
-- [ ] PagesJaunes (fiche gratuite, reprise par Mappy)
-- [ ] Waze (lieu à ajouter depuis l'app)
+- [ ] Apple Business Connect (Plans iPhone, Siri) : demande refusée, à refaire avec justificatif (avis de situation SIRET + facture au nom de JD KEY)
+- [x] Bing Places : fiche existante
+- [x] PagesJaunes : fiche existante (vérifier nom, adresse, téléphone, site identiques)
+- [x] Waze : JD KEY visible (à vérifier)
 - [ ] Chambre de Métiers Normandie / Artisans de Normandie
 - [ ] 118000, Yelp, Cylex, Hoodspot, Justacoté
 - [ ] Demander un lien aux garages partenaires (page partenaires)
 
 ## Google Ads — vigilance (24/11)
-- [ ] Passer en conversions secondaires : « Local actions - Website visits », « Actions locales - Autres engagements », « Actions locales – Itinéraire » (en attente d'accord)
+- [ ] Passer en « Secondaire » : « Local actions - Website visits », « Actions locales - Autres engagements », « Actions locales – Itinéraire » — accord donné le 24/11, mais Google refuse la modification via l'API : à faire par Yahya dans Google Ads (Objectifs → Conversions → Récapitulatif)
 - [ ] Surveiller le coût par clic la 1re semaine sans plafond (alerte si > 2,50 € en moyenne)
 - [ ] Ne rien modifier dans la campagne jusqu'au ~10/12 (apprentissage)
 
