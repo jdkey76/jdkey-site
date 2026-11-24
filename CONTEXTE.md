@@ -43,6 +43,15 @@ Mis à jour le 21/10/2026.
 ## Inokey
 - Abonnement 130 €/mois : envoie toutes les demandes de doubles et pertes totales de la région, avec les coordonnées des clients (1er client connu : Kadjar 2017, 280 €, le 22/10). À comparer chaque mois à Google Ads.
 
+## Bilan novembre (29/10 → 24/11)
+- Journal : 64 prestations, 10 300 € (moyenne 161 €). Perte totale 14 = 4 170 € (moy. 298 €) ; doubles 26 = 3 745 € ; pros 13 interventions = 1 650 € (garages, loueurs, transporteurs). Semaines : 1 655 / 3 005 / 2 745 / 1 220 / 1 675 € (partielle).
+- Total journal depuis le 17/10 : ≈ 77 prestations gagnées ≈ 12 565 €.
+- Google Ads (29/10 → 20/11) : 186 €, 302 clics, 30 conversions, CPC 0,62 €, CTR 13,2 %, 30 % d'impressions perdues faute de budget. Double 138 clics/9 conv, Perte 68/7, Urgence 41/7, Ouverture 11/6. « programmer clé voiture » : 0 conversion pour 12,78 €.
+- ALERTE : aucune visite Ads depuis le 21/11 alors que la campagne est active → facturation à vérifier.
+- Site (27 j) : 555 visites (Ads 306, direct 118, Google naturel 97, fiche 28, Bing 2). Clics : 25 appels, 22 WhatsApp, 5 réservations, 2 formulaires. 164 simulations terminées → 22 contacts après simulation (11 WhatsApp, 7 appels, 4 réservations).
+- Pages : accueil 237, double 135, tarifs 128, réservation 78, perte 70, remboursement assurance 51.
+- Fiche Google : catégorie principale passée à « Serrurier » le 20/11 ; le lien fiche (utm gbp) est mesuré depuis le 10/11. Effet trop récent pour conclure (à revoir mi-décembre). Search Console déconnecté d'Adspirer le 24/11.
+
 ## Bilan au 29/10 (journal + Google Ads + site)
 - Journal 17-29/10 : 42 demandes (+2 appels manqués). 12 gagnées = 2 050 € (panier moyen 171 €), 11 RDV/commandes à venir = 1 420 €, 11 en attente = 2 200 €, 8 perdues.
 - Semaine 23-29/10 : 24 demandes, 8 gagnées, 1 410 € (contre 18 / 4 / 640 € la semaine d'avant).

@@ -1,4 +1,4 @@
-# JD KEY — À faire (mis à jour le 21/10/2026)
+# JD KEY — À faire (mis à jour le 24/11/2026)
 
 ## À vérifier
 - [ ] La réservation 407 (jeudi 22/10, 14 h) apparaît dans l'agenda iPhone « JD KEY – Réservations »
@@ -23,9 +23,13 @@
 - [ ] Fiche Google : publier les 25 photos d'intervention petit à petit (3 par semaine)
 - [ ] Annuaires locaux (PagesJaunes, Mappy…) avec adresse et téléphone identiques
 
-## Journal (24/11)
-- [ ] 42 demandes du 31/10 au 24/11 ajoutées depuis le journal d'appels (contacts « Client Clé… ») : toutes en « attente », résultat (fait/perdu, prix final, source) à confirmer par JD KEY
-- [ ] Statut des RDV d'octobre : Fiesta 30/10, Sandero 31/10, Spring, Tiguan, BMW Série 5, Twingo 2010, Alfa Romeo, Renault (RDV site 23/10)
+## URGENT (24/11) — Google Ads ne diffuse plus depuis le 21/11
+- [ ] 0 visite « ads » sur le site depuis le 21/11 (12 à 18/jour avant), alors que la campagne est active et les annonces approuvées → vérifier Google Ads > Facturation (paiement refusé / carte expirée / solde épuisé)
+- [ ] Reconnecter Google Search Console dans Adspirer (Paramètres → Connexions) : la connexion a sauté
+
+## Journal (24/11) — fait
+- [x] 64 prestations du 29/10 au 24/11 reportées (10 300 €), 9 devis d'octobre passés en « perdu sans suite »
+- [ ] Encore en attente : RDV Spring 190, Tiguan 230, BMW S5 230, Alfa ; devis Iveco 80 / ix35 180, C1 Barentin 390, Jaguar XK 195, Mini 370, Trafic Elbeuf, 807, X3 pile, Ateca, Aveo, Jumpy 180, Clio 3 230, C3 2016, Mégane 3, ouverture 120, Zoé, Golf 8, client pro 330, Transit, Punto, Classe B ELV, Twingo 1 250
 
 ## Fiche Google (analyse du 29/10)
 - [ ] Catégorie principale : « Serrurier » (ou « Serrurier automobile » si proposée) au lieu de « Service de reproduction de clés » ; secondaires : reproduction de clés, serrurerie d'urgence
