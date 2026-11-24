@@ -28,7 +28,6 @@
 - Search Console : plus d'accès via Adspirer (abonnement Plus requis) → lire via le navigateur intégré
 - [x] « programmer clé voiture » gardé ; 8 exclusions ajoutées le 24/11 (comment programmer, comment reprogrammer, programmateur, clé/cle vierge, soi même, soi-même, universelle) ; programmation affichée « dès 80 € » sur le site
 - [x] Bouton d'appel : déjà présent dans les annonces (06 98 95 13 99), 16 appels en 60 jours
-- [ ] Lier la fiche Google à Google Ads (composant Lieu) : à faire par JD KEY dans Google Ads
 - [x] Enchères passées en « Maximiser les conversions » le 24/11 (plafond 3 € supprimé) : bilan mi-décembre
 - [x] Fiche Google liée à Google Ads (composant Lieu) le 24/11
 - [x] Lien d'avis direct en place (g.page/r/CTal9pDRJmjhEBM/review)
