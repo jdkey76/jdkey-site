@@ -23,13 +23,18 @@
 - [ ] Fiche Google : publier les 25 photos d'intervention petit à petit (3 par semaine)
 - [ ] Annuaires locaux (PagesJaunes, Mappy…) avec adresse et téléphone identiques
 
-## URGENT (24/11) — Google Ads ne diffuse plus depuis le 21/11
-- [ ] 0 visite « ads » sur le site depuis le 21/11 (12 à 18/jour avant), alors que la campagne est active et les annonces approuvées → vérifier Google Ads > Facturation (paiement refusé / carte expirée / solde épuisé)
-- [ ] Reconnecter Google Search Console dans Adspirer (Paramètres → Connexions) : la connexion a sauté
+## Google Ads / Search Console (24/11)
+- [x] Campagne mise en veille par JD KEY du 21 au 24/11 (volontaire), réactivée le 24/11 à 17 h
+- [ ] Search Console : bien connecté côté Google, mais Adspirer ne le voit plus → le reconnecter dans Adspirer (Paramètres → Connexions → Google Search Console)
+- [ ] Mettre en pause le mot-clé « programmer clé voiture » (0 conversion pour 12,78 €) : en attente d'accord
 
-## Journal (24/11) — fait
-- [x] 64 prestations du 29/10 au 24/11 reportées (10 300 €), 9 devis d'octobre passés en « perdu sans suite »
-- [ ] Encore en attente : RDV Spring 190, Tiguan 230, BMW S5 230, Alfa ; devis Iveco 80 / ix35 180, C1 Barentin 390, Jaguar XK 195, Mini 370, Trafic Elbeuf, 807, X3 pile, Ateca, Aveo, Jumpy 180, Clio 3 230, C3 2016, Mégane 3, ouverture 120, Zoé, Golf 8, client pro 330, Transit, Punto, Classe B ELV, Twingo 1 250
+## Journal — mis à jour le 24/11
+- [x] 64 prestations du 29/10 au 24/11 reportées ; point sur les devis fait le 24/11
+- RDV : Peugeot Partner 130 € (25/11), Golf 8 290 € (décembre), BMW Série 5 230 € (mauvaise clé reçue, RDV à refixer), Alfa Romeo (fraiseuse)
+- Commandes : Jaguar XK 280 € (mauvaise clé reçue, à recommander)
+- Doivent revenir : Tiguan 230 € (urgence familiale), Iveco 80 € + ix35 180 € (même client)
+- À relancer : Seat Ateca 190 €, Citroën C3 2016 80 € (validé puis silence)
+- Pas encore de nouvelles : Chevrolet Aveo (ouverture), ouverture 120 € du 14/11
 
 ## Fiche Google (analyse du 29/10)
 - [ ] Catégorie principale : « Serrurier » (ou « Serrurier automobile » si proposée) au lieu de « Service de reproduction de clés » ; secondaires : reproduction de clés, serrurerie d'urgence
