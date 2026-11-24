@@ -23,6 +23,10 @@
 - [ ] Fiche Google : publier les 25 photos d'intervention petit à petit (3 par semaine)
 - [ ] Annuaires locaux (PagesJaunes, Mappy…) avec adresse et téléphone identiques
 
+## Journal (24/11)
+- [ ] 42 demandes du 31/10 au 24/11 ajoutées depuis le journal d'appels (contacts « Client Clé… ») : toutes en « attente », résultat (fait/perdu, prix final, source) à confirmer par JD KEY
+- [ ] Statut des RDV d'octobre : Fiesta 30/10, Sandero 31/10, Spring, Tiguan, BMW Série 5, Twingo 2010, Alfa Romeo, Renault (RDV site 23/10)
+
 ## Fiche Google (analyse du 29/10)
 - [ ] Catégorie principale : « Serrurier » (ou « Serrurier automobile » si proposée) au lieu de « Service de reproduction de clés » ; secondaires : reproduction de clés, serrurerie d'urgence
 - [ ] Lien « Site web » : https://jdkey-auto-rouen.fr/?utm_source=gbp&utm_medium=organic (mesuré comme « Fiche Google » dans les statistiques)
