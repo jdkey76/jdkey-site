@@ -212,10 +212,15 @@ export function mobileFR(tel){
   return /^33[67]\d{8}$/.test(d) ? d : null;
 }
 export function reviewUrl(){ return process.env.REVIEW_URL || "https://www.google.com/maps?cid=16242274737633797430"; }
-// Message en caractères SMS standards (pas d'accents hors é/è/à) pour rester sur un seul SMS autant que possible
-export function reviewMessage(prenom){
+// Message écrit comme JD KEY l'écrirait lui-même. Caractères SMS standards (é, è, à : oui ; ç, ê, â : non).
+const AVIS_SVC = { ouverture: "pour l'ouverture de votre voiture", double: "pour votre double de clé", perte: "pour votre nouvelle clé",
+  programmation: "pour la programmation de votre clé", demarrage: "pour votre souci de démarrage", coque: "pour la réparation de votre clé" };
+export function reviewMessage(prenom, service){
   const p = String(prenom || "").split(" ")[0].replace(/[^\p{L}\-']/gu, "").slice(0, 20);
-  return `Bonjour${p ? " " + p : ""}, merci d'avoir choisi JD KEY ! Votre avis Google m'aiderait beaucoup : ${reviewUrl()} Bonne soirée !`;
+  const svc = AVIS_SVC[service] ? " " + AVIS_SVC[service] : "";
+  return `Bonjour${p ? " " + p : ""}, merci de m'avoir fait confiance${svc} aujourd'hui ! `
+    + `Je suis artisan indépendant et chaque avis compte vraiment pour moi : pourriez-vous me laisser un petit mot sur Google ? `
+    + `Cela m'aiderait beaucoup. ${reviewUrl()} Bonne soirée, JD KEY`;
 }
 
 export async function queueFor(st, date){
@@ -231,7 +236,7 @@ export async function queueFor(st, date){
     it.mobile = !!tel;
     const sent = tel ? await getJSON(st, `avis-envoye/${tel}`) : null;
     it.envoye = sent ? sent.date : null;
-    it.message = reviewMessage(it.prenom);
+    it.message = reviewMessage(it.prenom, it.service);
   }
   return items.sort((a, b) => (a.heure || "99").localeCompare(b.heure || "99"));
 }

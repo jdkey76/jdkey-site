@@ -26,7 +26,11 @@
 ## Google Ads / Search Console (24/11)
 - [x] Campagne mise en veille par JD KEY du 21 au 24/11 (volontaire), réactivée le 24/11 à 17 h
 - Search Console : plus d'accès via Adspirer (abonnement Plus requis) → lire via le navigateur intégré
-- [ ] « programmer clé voiture » : garder, mais le corriger (requêtes « comment programmer / programmateur / clé vierge » à exclure, page programmation au lieu de la page double, prix indicatif) — en attente d'accord
+- [x] « programmer clé voiture » gardé ; 8 exclusions ajoutées le 24/11 (comment programmer, comment reprogrammer, programmateur, clé/cle vierge, soi même, soi-même, universelle) ; programmation affichée « dès 80 € » sur le site
+- [x] Bouton d'appel : déjà présent dans les annonces (06 98 95 13 99), 16 appels en 60 jours
+- [ ] Lier la fiche Google à Google Ads (composant Lieu) : à faire par JD KEY dans Google Ads
+- [ ] Passer en « Maximiser les conversions » : en attente d'accord
+- [ ] Lien d'avis direct (g.page/r/…/review) à récupérer sur la fiche et à mettre dans REVIEW_URL
 
 ## Journal — mis à jour le 24/11
 - [x] 64 prestations du 29/10 au 24/11 reportées ; point sur les devis fait le 24/11

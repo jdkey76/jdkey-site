@@ -15,7 +15,7 @@ export default async () => {
     const r = await fetch("https://api.brevo.com/v3/transactionalSMS/send", {
       method: "POST",
       headers: { "api-key": key, "content-type": "application/json", accept: "application/json" },
-      body: JSON.stringify({ sender: "JDKEY", recipient: tel, content: reviewMessage(it.prenom), type: "transactional", tag: "avis", unicodeEnabled: false })
+      body: JSON.stringify({ sender: "JDKEY", recipient: tel, content: reviewMessage(it.prenom, it.service), type: "transactional", tag: "avis", unicodeEnabled: false })
     });
     const ok = r.ok;
     if (ok) { await st.setJSON(`avis-envoye/${tel}`, { date: now.date, mode: "auto" }); sent++; }

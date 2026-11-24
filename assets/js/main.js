@@ -157,8 +157,33 @@ function initEstimator(form, onChange){
   var form = $("#estimator-form");
   if (!form) return;
   var book = $("#est-book"), call = $("#est-call"), actions = $(".est-actions", form);
+  // Bouton WhatsApp avec la simulation déjà écrite : le client n'a plus rien à taper.
+  var wa = $("#est-wa", form);
+  if (!wa && actions) {
+    wa = document.createElement("a"); wa.id = "est-wa"; wa.className = "btn btn-wa est-wa";
+    wa.target = "_blank"; wa.rel = "noopener"; wa.setAttribute("data-track", (call.getAttribute("data-track") || "estimateur") + "-wa");
+    wa.innerHTML = '<svg><use href="#i-wa"/></svg>Envoyer sur WhatsApp';
+    actions.appendChild(wa);
+  }
+  function txt(name){
+    var el = $("[name=" + name + "]", form);
+    if (!el || !el.value) return "";
+    return el.selectedOptions ? el.selectedOptions[0].textContent.trim() : el.value;
+  }
+  function waText(v, r){
+    var S = window.JDKPrice.SERVICES, t = $("[name=typeCle]:checked", form), lab = t && t.closest("label");
+    var veh = [v.marque, txt("annee")].filter(Boolean).join(" ");
+    var l = ["Bonjour, j'ai fait une simulation sur votre site :", "- " + S[v.service].label];
+    if (veh) l.push("- Véhicule : " + veh);
+    var b = lab && lab.querySelector("b");
+    if (t && (v.service === "double" || v.service === "perte")) l.push("- Clé : " + (b ? b.textContent.trim() : t.value) + (v.typeCle === "carte" && v.modeleCarte ? " (" + txt("modeleCarte") + ")" : ""));
+    l.push("- Prix affiché : " + window.JDKPrice.format(r));
+    l.push(r.quote ? "Voici mon immatriculation : " : "Pouvez-vous me confirmer le prix et une disponibilité ?");
+    return l.join("\n");
+  }
   initEstimator(form, function(v, r){
     var urgent = v.service && window.JDKPrice.SERVICES[v.service].urgent;
+    if (wa) { wa.style.display = r ? "" : "none"; if (r) wa.href = "https://wa.me/33698951399?text=" + encodeURIComponent(waText(v, r)); }
     var p = new URLSearchParams();
     ["service", "marque", "annee", "typeCle", "modeleCarte"].forEach(function(k){ if (v[k]) p.set(k, v[k]); });
     book.href = "/reservation/?" + p.toString();

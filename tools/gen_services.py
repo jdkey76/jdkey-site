@@ -13,7 +13,7 @@ OTHERS = {
     "ouverture": ("/ouverture-voiture-rouen/", "i-unlock", "Ouverture de véhicule", "Clé enfermée, porte bloquée.", "dès 80 €"),
     "perte": ("/perte-cle-voiture-rouen/", "i-key", "Perte totale de clés", "Nouvelle clé sur place.", "dès 200 €"),
     "double": ("/double-cle-voiture-rouen/", "i-copy", "Double de clé", "Télécommande, carte, puce.", "dès 80 €"),
-    "programmation": ("/programmation-cle-voiture-rouen/", "i-remote", "Programmation de clé", "Télécommande, carte, démarrage.", "sur devis"),
+    "programmation": ("/programmation-cle-voiture-rouen/", "i-remote", "Programmation de clé", "Télécommande, carte, démarrage.", "dès 80 €"),
     "coque": ("/cle-cassee-reparation-coque/", "i-tool", "Clé cassée, coque", "Réparation et remplacement.", "dès 60 €"),
 }
 
@@ -90,7 +90,7 @@ PAGES = [
     "chips": ["Diagnostic sur place", "Agréé SERMI", "Multimarques"],
     "wa": "Bonjour, ma télécommande de voiture ne fonctionne plus.",
     "card_title": "Programmation et démarrage",
-    "card_rows": [("Reprogrammation de télécommande", "sur devis"), ("Carte Renault non détectée", "sur devis"), ("Clé mains libres", "sur devis"), ("Voiture qui ne démarre plus", "sur devis")],
+    "card_rows": [("Clé simple programmée", "dès 80 €"), ("Reprogrammation de télécommande", "sur devis"), ("Carte Renault non détectée", "sur devis"), ("Clé mains libres", "sur devis"), ("Voiture qui ne démarre plus", "sur devis")],
     "card_note": "Le prix dépend du diagnostic. Envoyez marque, modèle, année et symptôme par WhatsApp : devis gratuit en quelques minutes.",
     "offer": None,
     "h2": "Avant de racheter une clé, faites-la diagnostiquer",

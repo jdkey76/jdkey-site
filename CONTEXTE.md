@@ -43,6 +43,12 @@ Mis à jour le 21/10/2026.
 ## Inokey
 - Abonnement 130 €/mois : envoie toutes les demandes de doubles et pertes totales de la région, avec les coordonnées des clients (1er client connu : Kadjar 2017, 280 €, le 22/10). À comparer chaque mois à Google Ads.
 
+## Changements du 24/11
+- Simulateur : bouton « Envoyer sur WhatsApp » avec la simulation déjà écrite (service, véhicule, clé, prix affiché).
+- Programmation : « dès 80 € » (clé simple) au lieu de « sur devis ».
+- Message de demande d'avis réécrit, plus personnel, avec la prestation du client (netlify/lib/core.mjs, reviewMessage).
+- Google Ads : 8 exclusions « je le fais moi-même » ajoutées.
+
 ## Bilan novembre (29/10 → 24/11)
 - Journal : 64 prestations, 10 300 € (moyenne 161 €). Perte totale 14 = 4 170 € (moy. 298 €) ; doubles 26 = 3 745 € ; pros 13 interventions = 1 650 € (garages, loueurs, transporteurs). Semaines : 1 655 / 3 005 / 2 745 / 1 220 / 1 675 € (partielle).
 - Total journal depuis le 17/10 : ≈ 81 prestations gagnées ≈ 13 225 € (après le point du 24/11 : + Mégane 3 130 €, + Clio 3 AKL 230 €, + Classe B ELV 300 €, + 807 offert).

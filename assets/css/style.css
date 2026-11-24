@@ -117,6 +117,7 @@ p{margin:0 0 1em}
 .est-note{font-size:.84rem;color:var(--muted);margin:.4em 0 0}
 .est-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .est-actions .btn{padding:.85em .8em;font-size:.95rem}
+.est-actions .est-wa{grid-column:1/-1;white-space:normal}
 
 /* ---------- Barre de confiance ---------- */
 .trustbar{background:var(--ink);color:#fff}

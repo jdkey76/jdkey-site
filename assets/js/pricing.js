@@ -33,7 +33,7 @@
     /* Autres prestations */
     fixes: {
       coque:         { prix: [60], from: true, label: "Clé cassée, changement de coque" },
-      programmation: { quote: true, label: "Programmation de clé / télécommande" },
+      programmation: { prix: [80], from: true, label: "Programmation de clé / télécommande" },
       demarrage:     { quote: true, label: "Voiture qui ne démarre plus" }
     },
 
@@ -114,7 +114,7 @@
     }
     if (P.fixes[s]) {
       var f = P.fixes[s];
-      return f.quote ? { quote: true } : { min: f.prix[0], max: f.prix[1] || f.prix[0], from: !!f.from };
+      return f.quote ? { quote: true } : { min: f.prix[0], max: f.prix[1] || f.prix[0], from: !!f.from, detail: s === "programmation" ? "Clé simple dès 80 €, télécommande selon le modèle : prix exact annoncé avant intervention." : "" };
     }
     // Perte totale : le prix dépend du véhicule, minimum 200 €
     if (s === "perte") return { min: P.perteMinimum, from: true, deplacement: true,
