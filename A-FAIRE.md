@@ -33,6 +33,20 @@
 - [x] Lien d'avis direct en place (g.page/r/CTal9pDRJmjhEBM/review)
 - [ ] Message d'avis en mode « ce mois-ci » (envoi groupé fin novembre) : repasser AVIS_MOMENT à "jour" quand Yahya le demande
 
+## Annuaires (liste du 24/11) — mêmes nom, adresse, téléphone partout
+- [ ] Apple Business Connect (Plans iPhone, Siri)
+- [ ] Bing Places (import direct depuis la fiche Google)
+- [ ] PagesJaunes (fiche gratuite, reprise par Mappy)
+- [ ] Waze (lieu à ajouter depuis l'app)
+- [ ] Chambre de Métiers Normandie / Artisans de Normandie
+- [ ] 118000, Yelp, Cylex, Hoodspot, Justacoté
+- [ ] Demander un lien aux garages partenaires (page partenaires)
+
+## Google Ads — vigilance (24/11)
+- [ ] Passer en conversions secondaires : « Local actions - Website visits », « Actions locales - Autres engagements », « Actions locales – Itinéraire » (en attente d'accord)
+- [ ] Surveiller le coût par clic la 1re semaine sans plafond (alerte si > 2,50 € en moyenne)
+- [ ] Ne rien modifier dans la campagne jusqu'au ~10/12 (apprentissage)
+
 ## Journal — mis à jour le 24/11
 - [x] 64 prestations du 29/10 au 24/11 reportées ; point sur les devis fait le 24/11
 - RDV : Peugeot Partner 130 € (25/11), Golf 8 290 € (décembre), BMW Série 5 230 € (mauvaise clé reçue, RDV à refixer), Alfa Romeo (fraiseuse)
